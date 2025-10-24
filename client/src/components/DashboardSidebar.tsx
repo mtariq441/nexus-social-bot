@@ -13,12 +13,16 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
+import { CreditCard, Shield } from "lucide-react";
+
 const menuItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Composer", url: "/dashboard/composer", icon: Calendar },
   { title: "Inbox", url: "/dashboard/inbox", icon: Inbox },
   { title: "Analytics", url: "/dashboard/analytics", icon: BarChart3 },
   { title: "Integrations", url: "/dashboard/integrations", icon: Link2 },
+  { title: "Subscription", url: "/dashboard/subscription", icon: CreditCard },
+  { title: "Admin", url: "/dashboard/admin", icon: Shield },
   { title: "Settings", url: "/dashboard/settings", icon: Settings },
 ];
 
