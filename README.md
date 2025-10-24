@@ -62,7 +62,36 @@ This project is built with:
 
 ## How can I deploy this project?
 
+### Deploy to Lovable
+
 Simply open [Lovable](https://lovable.dev/projects/c008267a-4501-41ed-91bc-b5f24677a23e) and click on Share -> Publish.
+
+### Deploy to Render
+
+This project is configured for easy deployment to Render as a static site or web service.
+
+#### Option 1: Deploy as Static Site (Recommended for Vite/React apps)
+
+1. Go to [Render Dashboard](https://dashboard.render.com/) and create a new **Static Site**
+2. Connect your GitHub repository
+3. Configure the build settings:
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+4. Click "Create Static Site"
+
+#### Option 2: Deploy as Web Service
+
+1. Go to [Render Dashboard](https://dashboard.render.com/) and create a new **Web Service**
+2. Connect your GitHub repository
+3. Configure the service settings:
+   - **Name**: Your app name
+   - **Environment**: `Node`
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm run start`
+   - **Port**: Render will automatically set the `PORT` environment variable
+4. Click "Create Web Service"
+
+Your app will automatically deploy on every push to your main branch.
 
 ## Can I connect a custom domain to my Lovable project?
 
