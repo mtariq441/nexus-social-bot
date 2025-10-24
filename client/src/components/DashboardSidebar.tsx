@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useLocation } from "wouter";
 import { MessageSquare, LayoutDashboard, Calendar, Inbox, BarChart3, Settings, Link2, LogOut } from "lucide-react";
 import {
   Sidebar,
@@ -12,8 +12,8 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@lib/queryClient";
 
 const menuItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
@@ -26,20 +26,21 @@ const menuItems = [
 
 export const DashboardSidebar = () => {
   const { state } = useSidebar();
-  const navigate = useNavigate();
+  const [location, setLocation] = useLocation();
   const { toast } = useToast();
   const collapsed = state === "collapsed";
 
   const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
+    try {
+      await apiRequest("/api/auth/logout", { method: "POST" });
+      localStorage.removeItem('sessionId');
+      setLocation("/");
+    } catch (error: any) {
       toast({
         title: "Error",
         description: error.message,
         variant: "destructive",
       });
-    } else {
-      navigate("/");
     }
   };
 
@@ -68,21 +69,20 @@ export const DashboardSidebar = () => {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      className={({ isActive }) =>
-                        isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : ""
-                      }
+                    <a
+                      href={item.url}
+                      className={location === item.url ? "bg-sidebar-accent text-sidebar-accent-foreground" : ""}
+                      data-testid={`link-${item.title.toLowerCase()}`}
                     >
                       <item.icon className="h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
-                    </NavLink>
+                    </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
               
               <SidebarMenuItem>
-                <SidebarMenuButton onClick={handleLogout}>
+                <SidebarMenuButton onClick={handleLogout} data-testid="button-logout">
                   <LogOut className="h-4 w-4" />
                   {!collapsed && <span>Logout</span>}
                 </SidebarMenuButton>

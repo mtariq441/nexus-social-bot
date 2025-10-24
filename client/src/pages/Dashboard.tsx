@@ -2,14 +2,14 @@ import { DashboardLayout } from "@/components/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Inbox, BarChart3, TrendingUp, Users, MessageSquare } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 const Dashboard = () => {
   return (
     <DashboardLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold" data-testid="text-dashboard-title">Dashboard</h1>
           <p className="text-muted-foreground">Welcome back! Here's your overview.</p>
         </div>
 
@@ -21,7 +21,7 @@ const Dashboard = () => {
               <Calendar className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">24</div>
+              <div className="text-2xl font-bold" data-testid="text-scheduled-posts">24</div>
               <p className="text-xs text-muted-foreground">+3 from last week</p>
             </CardContent>
           </Card>
@@ -32,7 +32,7 @@ const Dashboard = () => {
               <MessageSquare className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12</div>
+              <div className="text-2xl font-bold" data-testid="text-pending-messages">12</div>
               <p className="text-xs text-muted-foreground">Across all platforms</p>
             </CardContent>
           </Card>
@@ -43,7 +43,7 @@ const Dashboard = () => {
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">45.2K</div>
+              <div className="text-2xl font-bold" data-testid="text-total-followers">45.2K</div>
               <p className="text-xs text-muted-foreground">+12% this month</p>
             </CardContent>
           </Card>
@@ -54,7 +54,7 @@ const Dashboard = () => {
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">8.3%</div>
+              <div className="text-2xl font-bold" data-testid="text-engagement-rate">8.3%</div>
               <p className="text-xs text-muted-foreground">+2.1% from last week</p>
             </CardContent>
           </Card>
@@ -73,8 +73,10 @@ const Dashboard = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 Create and schedule posts across all platforms
               </p>
-              <Link to="/dashboard/composer">
-                <Button className="w-full">Create Post</Button>
+              <Link href="/dashboard/composer">
+                <a>
+                  <Button className="w-full" data-testid="button-create-post">Create Post</Button>
+                </a>
               </Link>
             </CardContent>
           </Card>
@@ -90,10 +92,12 @@ const Dashboard = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 View and respond to all messages in one place
               </p>
-              <Link to="/dashboard/inbox">
-                <Button className="w-full" variant="outline">
-                  View Inbox
-                </Button>
+              <Link href="/dashboard/inbox">
+                <a>
+                  <Button className="w-full" variant="outline" data-testid="button-view-inbox">
+                    View Inbox
+                  </Button>
+                </a>
               </Link>
             </CardContent>
           </Card>
@@ -109,10 +113,12 @@ const Dashboard = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 Track performance and insights
               </p>
-              <Link to="/dashboard/analytics">
-                <Button className="w-full" variant="outline">
-                  View Analytics
-                </Button>
+              <Link href="/dashboard/analytics">
+                <a>
+                  <Button className="w-full" variant="outline" data-testid="button-view-analytics">
+                    View Analytics
+                  </Button>
+                </a>
               </Link>
             </CardContent>
           </Card>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export const Hero = () => {
@@ -23,13 +23,15 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/auth">
-              <Button size="lg" className="group">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            <Link href="/auth">
+              <a>
+                <Button size="lg" className="group" data-testid="button-start-trial">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
             </Link>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" data-testid="button-demo">
               Watch Demo
             </Button>
           </div>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 const plans = [
   {
@@ -96,13 +96,16 @@ export const Pricing = () => {
                   ))}
                 </ul>
                 
-                <Link to="/auth">
-                  <Button
-                    className="w-full"
-                    variant={plan.popular ? "default" : "outline"}
-                  >
-                    Start Free Trial
-                  </Button>
+                <Link href="/auth">
+                  <a>
+                    <Button
+                      className="w-full"
+                      variant={plan.popular ? "default" : "outline"}
+                      data-testid={`button-plan-${plan.name.toLowerCase()}`}
+                    >
+                      Start Free Trial
+                    </Button>
+                  </a>
                 </Link>
               </CardContent>
             </Card>

@@ -1,30 +1,25 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "wouter";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "./DashboardSidebar";
-import { supabase } from "@/integrations/supabase/client";
+import { apiRequest } from "@lib/queryClient";
 
 export const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Check authentication
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        navigate("/auth");
+    const checkAuth = async () => {
+      try {
+        await apiRequest("/api/auth/session");
+        setLoading(false);
+      } catch (error) {
+        setLocation("/auth");
       }
-      setLoading(false);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (!session) {
-        navigate("/auth");
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
+    };
+    checkAuth();
+  }, [setLocation]);
 
   if (loading) {
     return (
