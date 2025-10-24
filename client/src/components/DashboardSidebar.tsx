@@ -12,8 +12,6 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@lib/queryClient";
 
 const menuItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
@@ -27,21 +25,11 @@ const menuItems = [
 export const DashboardSidebar = () => {
   const { state } = useSidebar();
   const [location, setLocation] = useLocation();
-  const { toast } = useToast();
   const collapsed = state === "collapsed";
 
-  const handleLogout = async () => {
-    try {
-      await apiRequest("/api/auth/logout", { method: "POST" });
-      localStorage.removeItem('sessionId');
-      setLocation("/");
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
-    }
+  const handleLogout = () => {
+    localStorage.removeItem('sessionId');
+    setLocation("/");
   };
 
   return (

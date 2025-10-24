@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageSquare, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@lib/queryClient";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -16,45 +15,19 @@ const Auth = () => {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
-  useEffect(() => {
-    // Check if user is already logged in
-    const checkSession = async () => {
-      try {
-        await apiRequest("/api/auth/session");
-        setLocation("/dashboard");
-      } catch (error) {
-        // Not logged in, stay on auth page
-      }
-    };
-    checkSession();
-  }, [setLocation]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const endpoint = isLogin ? "/api/auth/login" : "/api/auth/signup";
-      await apiRequest(endpoint, {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-      });
-      
+    setTimeout(() => {
       toast({
         title: "Success",
         description: isLogin ? "Logged in successfully" : "Account created successfully",
       });
       
       setLocation("/dashboard");
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
-    } finally {
       setLoading(false);
-    }
+    }, 500);
   };
 
   return (
