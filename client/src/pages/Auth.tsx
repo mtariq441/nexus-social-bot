@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { AuthLayout } from "@/components/AuthLayout";
-import { Loader2, Mail, Chrome, Github } from "lucide-react";
+import { Loader2, Chrome, Github } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -22,7 +22,6 @@ const Auth = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!email || !password || (!isLogin && !name)) {
       toast({
         title: "Error",
@@ -59,12 +58,12 @@ const Auth = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <Card className="border-2">
+        <Card className="glass-strong border-2 border-border/50 hover:border-primary/20 transition-all shadow-glow-sm">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold">
+            <CardTitle className="text-3xl font-bold gradient-text">
               {isLogin ? "Welcome back" : "Create an account"}
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-base">
               {isLogin
                 ? "Enter your credentials to access your account"
                 : "Start your 14-day free trial. No credit card required."}
@@ -73,24 +72,38 @@ const Auth = () => {
           <CardContent>
             {/* Social Login Buttons */}
             <div className="grid grid-cols-2 gap-3 mb-6">
-              <Button
-                variant="outline"
-                onClick={() => handleSocialLogin("Google")}
-                data-testid="button-google-login"
-                className="w-full"
-              >
-                <Chrome className="w-4 h-4 mr-2" />
-                Google
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => handleSocialLogin("GitHub")}
-                data-testid="button-github-login"
-                className="w-full"
-              >
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </Button>
+              <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  variant="outline"
+                  onClick={() => handleSocialLogin("Google")}
+                  data-testid="button-google-login"
+                  className="w-full glass hover:shadow-glow-sm transition-all group"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <Chrome className="w-4 h-4 mr-2" />
+                  </motion.div>
+                  Google
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  variant="outline"
+                  onClick={() => handleSocialLogin("GitHub")}
+                  data-testid="button-github-login"
+                  className="w-full glass hover:shadow-glow-sm transition-all group"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                  </motion.div>
+                  GitHub
+                </Button>
+              </motion.div>
             </div>
 
             <div className="relative mb-6">
@@ -98,15 +111,20 @@ const Auth = () => {
                 <Separator />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                <span className="glass px-3 py-1 text-muted-foreground rounded-full">Or continue with</span>
               </div>
             </div>
 
             {/* Email/Password Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {!isLogin && (
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="space-y-2"
+                >
+                  <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
                   <Input
                     id="name"
                     type="text"
@@ -115,12 +133,13 @@ const Auth = () => {
                     onChange={(e) => setName(e.target.value)}
                     required={!isLogin}
                     data-testid="input-name"
+                    className="glass focus-ring-glow transition-all"
                   />
-                </div>
+                </motion.div>
               )}
               
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-sm font-medium">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -129,14 +148,15 @@ const Auth = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   data-testid="input-email"
+                  className="glass focus-ring-glow transition-all"
                 />
               </div>
               
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
                   {isLogin && (
-                    <a href="#" className="text-sm text-primary hover:underline">
+                    <a href="#" className="text-sm text-primary hover:underline hover:text-primary-glow transition-colors">
                       Forgot password?
                     </a>
                   )}
@@ -149,6 +169,7 @@ const Auth = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   data-testid="input-password"
+                  className="glass focus-ring-glow transition-all"
                 />
                 {!isLogin && (
                   <p className="text-xs text-muted-foreground">
@@ -157,15 +178,20 @@ const Auth = () => {
                 )}
               </div>
               
-              <Button 
-                type="submit" 
-                className="w-full" 
-                disabled={loading}
-                data-testid="button-submit"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isLogin ? "Sign In" : "Create Account"}
-              </Button>
+                <Button 
+                  type="submit" 
+                  className="w-full btn-premium bg-gradient-to-r from-primary to-accent text-white border-0 hover:shadow-glow-lg text-base h-11" 
+                  disabled={loading}
+                  data-testid="button-submit"
+                >
+                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {isLogin ? "Sign In" : "Create Account"}
+                </Button>
+              </motion.div>
             </form>
             
             <div className="mt-6 text-center text-sm">
@@ -176,7 +202,7 @@ const Auth = () => {
                   setEmail("");
                   setPassword("");
                 }}
-                className="text-primary hover:underline"
+                className="text-primary hover:text-primary-glow hover:underline transition-colors"
                 data-testid="button-toggle-auth"
               >
                 {isLogin
@@ -186,12 +212,16 @@ const Auth = () => {
             </div>
 
             {!isLogin && (
-              <p className="mt-4 text-xs text-center text-muted-foreground">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-4 text-xs text-center text-muted-foreground"
+              >
                 By creating an account, you agree to our{" "}
                 <a href="#" className="text-primary hover:underline">Terms of Service</a>
                 {" "}and{" "}
                 <a href="#" className="text-primary hover:underline">Privacy Policy</a>
-              </p>
+              </motion.p>
             )}
           </CardContent>
         </Card>

@@ -64,13 +64,24 @@ export default {
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
+        "gradient-primary-hover": "var(--gradient-primary-hover)",
         "gradient-hero": "var(--gradient-hero)",
+        "gradient-hero-dark": "var(--gradient-hero-dark)",
         "gradient-card": "var(--gradient-card)",
+        "gradient-shine": "var(--gradient-shine)",
+        "gradient-mesh": "var(--gradient-mesh)",
       },
       boxShadow: {
         card: "var(--shadow-card)",
         lg: "var(--shadow-lg)",
+        xl: "var(--shadow-xl)",
+        "2xl": "var(--shadow-2xl)",
         glow: "var(--shadow-glow)",
+        "glow-sm": "0 0 20px hsl(var(--primary) / 0.2)",
+        "glow-md": "var(--shadow-glow)",
+        "glow-lg": "var(--shadow-glow-lg)",
+        colored: "var(--shadow-colored)",
+        inner: "var(--shadow-inner)",
       },
       transitionProperty: {
         smooth: "var(--transition-smooth)",
@@ -97,10 +108,108 @@ export default {
             height: "0",
           },
         },
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-20px)",
+          },
+        },
+        "float-slow": {
+          "0%, 100%": {
+            transform: "translateY(0px) translateX(0px)",
+          },
+          "50%": {
+            transform: "translateY(-30px) translateX(10px)",
+          },
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(var(--primary) / 0.3)",
+          },
+          "50%": {
+            boxShadow: "0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--accent) / 0.3)",
+          },
+        },
+        "gradient-shift": {
+          "0%, 100%": {
+            backgroundPosition: "0% 50%",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+          },
+        },
+        fadeInUp: {
+          from: {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        fadeInDown: {
+          from: {
+            opacity: "0",
+            transform: "translateY(-30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        scaleIn: {
+          from: {
+            opacity: "0",
+            transform: "scale(0.9)",
+          },
+          to: {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        slideInRight: {
+          from: {
+            opacity: "0",
+            transform: "translateX(30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
+        "rotate-slow": {
+          from: {
+            transform: "rotate(0deg)",
+          },
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+        shimmer: {
+          "0%": {
+            transform: "translateX(-100%)",
+          },
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 6s ease-in-out infinite",
+        "float-slow": "float-slow 8s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        gradient: "gradient-shift 3s ease infinite",
+        fadeInUp: "fadeInUp 0.6s ease-out",
+        fadeInDown: "fadeInDown 0.6s ease-out",
+        scaleIn: "scaleIn 0.4s ease-out",
+        slideInRight: "slideInRight 0.5s ease-out",
+        "rotate-slow": "rotate-slow 20s linear infinite",
+        shimmer: "shimmer 2s infinite",
       },
     },
   },

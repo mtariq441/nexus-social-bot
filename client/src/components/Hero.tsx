@@ -6,7 +6,14 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <section className="pt-32 pb-20 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-hero opacity-50" />
+      {/* Animated Gradient Background with Mesh Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background">
+        <div className="absolute inset-0 opacity-50" style={{ background: 'var(--gradient-mesh)' }} />
+      </div>
+      
+      {/* Floating Gradient Orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float-slow" />
       
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -14,9 +21,9 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-8"
+            className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2 mb-8 hover:shadow-glow-sm transition-all"
           >
-            <Sparkles className="w-4 h-4 text-primary" />
+            <Sparkles className="w-4 h-4 text-primary animate-pulse-glow" />
             <span className="text-sm font-medium">AI-Powered Social Media Management</span>
           </motion.div>
           
@@ -24,16 +31,20 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl font-bold mb-6"
           >
-            Manage All Your Social Media in One Place
+            <span className="gradient-text">Manage All Your</span>
+            <br />
+            <span className="gradient-text">Social Media</span>
+            <br />
+            <span className="text-foreground">in One Place</span>
           </motion.h1>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
           >
             Schedule posts, respond to messages, track analytics, and automate engagement across all platforms with AI-powered tools.
           </motion.p>
@@ -45,12 +56,21 @@ export const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/auth">
-              <Button size="lg" className="group" data-testid="button-start-trial">
+              <Button 
+                size="lg" 
+                className="group btn-premium bg-gradient-to-r from-primary to-accent hover:shadow-glow-lg text-white border-0" 
+                data-testid="button-start-trial"
+              >
                 Start Free Trial
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" data-testid="button-demo">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="glass hover:shadow-glow-sm transition-all" 
+              data-testid="button-demo"
+            >
               Watch Demo
             </Button>
           </motion.div>
@@ -59,20 +79,24 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+            className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
-            <div>
-              <div className="text-3xl font-bold text-primary">10+</div>
-              <div className="text-sm text-muted-foreground">Platforms</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary">50K+</div>
-              <div className="text-sm text-muted-foreground">Active Users</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary">99.9%</div>
-              <div className="text-sm text-muted-foreground">Uptime</div>
-            </div>
+            {[
+              { value: '10+', label: 'Platforms' },
+              { value: '50K+', label: 'Active Users' },
+              { value: '99.9%', label: 'Uptime' }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                className="glass rounded-2xl p-6 hover:shadow-glow-sm transition-all cursor-default"
+              >
+                <div className="text-3xl font-bold gradient-text">{stat.value}</div>
+                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
