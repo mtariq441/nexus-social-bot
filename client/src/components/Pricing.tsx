@@ -71,7 +71,7 @@ export const Pricing = () => {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pt-6">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -80,6 +80,7 @@ export const Pricing = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               whileHover={{ scale: plan.popular ? 1.02 : 1.05, y: -8 }}
+              className="relative"
             >
               <Card
                 className={`relative h-full flex flex-col overflow-hidden ${
