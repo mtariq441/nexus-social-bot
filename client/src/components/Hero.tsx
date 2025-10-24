@@ -24,12 +24,10 @@ export const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/auth">
-              <a>
-                <Button size="lg" className="group" data-testid="button-start-trial">
-                  Start Free Trial
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
+              <Button size="lg" className="group" data-testid="button-start-trial">
+                Start Free Trial
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </Link>
             <Button size="lg" variant="outline" data-testid="button-demo">
               Watch Demo

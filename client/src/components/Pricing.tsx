@@ -97,15 +97,13 @@ export const Pricing = () => {
                 </ul>
                 
                 <Link href="/auth">
-                  <a>
-                    <Button
-                      className="w-full"
-                      variant={plan.popular ? "default" : "outline"}
-                      data-testid={`button-plan-${plan.name.toLowerCase()}`}
-                    >
-                      Start Free Trial
-                    </Button>
-                  </a>
+                  <Button
+                    className="w-full"
+                    variant={plan.popular ? "default" : "outline"}
+                    data-testid={`button-plan-${plan.name.toLowerCase()}`}
+                  >
+                    Start Free Trial
+                  </Button>
                 </Link>
               </CardContent>
             </Card>
