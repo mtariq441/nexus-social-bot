@@ -71,7 +71,7 @@ export const Pricing = () => {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pt-6">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pt-8">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -83,18 +83,18 @@ export const Pricing = () => {
               className="relative"
             >
               <Card
-                className={`relative h-full flex flex-col overflow-hidden ${
+                className={`relative h-full flex flex-col ${
                   plan.popular
-                    ? "border-gradient shadow-glow-lg scale-105"
-                    : "glass border-2 border-border/50 hover:border-primary/30 hover:shadow-glow-sm"
+                    ? "border-gradient shadow-glow-lg scale-105 overflow-visible"
+                    : "glass border-2 border-border/50 hover:border-primary/30 hover:shadow-glow-sm overflow-hidden"
                 } transition-all duration-300`}
               >
                 {plan.popular && (
                   <>
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg" />
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
                       <motion.span 
-                        className="bg-gradient-to-r from-primary to-accent text-white px-6 py-1.5 rounded-full text-sm font-medium shadow-glow-md"
+                        className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full text-sm font-medium shadow-glow-md inline-block"
                         animate={{ y: [0, -2, 0] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
