@@ -2,35 +2,38 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Star, Quote } from "lucide-react";
 import { motion } from "framer-motion";
-
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "Social Media Manager",
-    company: "TechCorp",
-    content: "SocialSync has transformed how we manage our social media. The AI features save us hours every week!",
-    rating: 5,
-    initials: "SJ",
-  },
-  {
-    name: "Michael Chen",
-    role: "Marketing Director",
-    company: "GrowthHub",
-    content: "The unified inbox is a game-changer. We never miss a message or comment across any platform.",
-    rating: 5,
-    initials: "MC",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Founder",
-    company: "CreativeStudio",
-    content: "Best investment for our agency. The analytics and scheduling features are incredibly powerful.",
-    rating: 5,
-    initials: "ER",
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const Testimonials = () => {
+  const { t } = useLanguage();
+  
+  const testimonials = [
+    {
+      name: t.landing.testimonials.items.sarah.name,
+      role: t.landing.testimonials.items.sarah.role,
+      company: t.landing.testimonials.items.sarah.company,
+      content: t.landing.testimonials.items.sarah.content,
+      rating: 5,
+      initials: "SJ",
+    },
+    {
+      name: t.landing.testimonials.items.michael.name,
+      role: t.landing.testimonials.items.michael.role,
+      company: t.landing.testimonials.items.michael.company,
+      content: t.landing.testimonials.items.michael.content,
+      rating: 5,
+      initials: "MC",
+    },
+    {
+      name: t.landing.testimonials.items.emily.name,
+      role: t.landing.testimonials.items.emily.role,
+      company: t.landing.testimonials.items.emily.company,
+      content: t.landing.testimonials.items.emily.content,
+      rating: 5,
+      initials: "ER",
+    },
+  ];
+
   return (
     <section id="testimonials" className="py-20 px-4 bg-muted/30 dark:bg-muted/10 relative overflow-hidden">
       {/* Background Gradient Orbs */}
@@ -45,11 +48,11 @@ export const Testimonials = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Loved by Teams</span> Worldwide
+          <h2 className="text-4xl font-bold mb-4 gradient-text">
+            {t.landing.testimonials.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of professionals who trust SocialSync
+            {t.landing.testimonials.subtitle}
           </p>
         </motion.div>
         
@@ -100,7 +103,7 @@ export const Testimonials = () => {
                     <div>
                       <div className="font-semibold">{testimonial.name}</div>
                       <div className="text-sm text-muted-foreground">
-                        {testimonial.role} at {testimonial.company}
+                        {testimonial.role} - {testimonial.company}
                       </div>
                     </div>
                   </div>

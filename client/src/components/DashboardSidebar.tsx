@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { MessageSquare, LayoutDashboard, Calendar, Inbox, BarChart3, Settings, Link2, LogOut } from "lucide-react";
+import { MessageSquare, LayoutDashboard, Calendar, Inbox, BarChart3, Settings, Link2, LogOut, Users } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -14,22 +14,25 @@ import {
 } from "@/components/ui/sidebar";
 
 import { CreditCard, Shield } from "lucide-react";
-
-const menuItems = [
-  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Composer", url: "/dashboard/composer", icon: Calendar },
-  { title: "Inbox", url: "/dashboard/inbox", icon: Inbox },
-  { title: "Analytics", url: "/dashboard/analytics", icon: BarChart3 },
-  { title: "Integrations", url: "/dashboard/integrations", icon: Link2 },
-  { title: "Subscription", url: "/dashboard/subscription", icon: CreditCard },
-  { title: "Admin", url: "/dashboard/admin", icon: Shield },
-  { title: "Settings", url: "/dashboard/settings", icon: Settings },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const DashboardSidebar = () => {
   const { state } = useSidebar();
   const [location, setLocation] = useLocation();
   const collapsed = state === "collapsed";
+  const { t } = useLanguage();
+
+  const menuItems = [
+    { title: t.nav.dashboard, url: "/dashboard", icon: LayoutDashboard, testId: "dashboard" },
+    { title: t.nav.composer, url: "/dashboard/composer", icon: Calendar, testId: "composer" },
+    { title: t.nav.inbox, url: "/dashboard/inbox", icon: Inbox, testId: "inbox" },
+    { title: t.nav.analytics, url: "/dashboard/analytics", icon: BarChart3, testId: "analytics" },
+    { title: t.nav.integrations, url: "/dashboard/integrations", icon: Link2, testId: "integrations" },
+    { title: t.nav.team, url: "/dashboard/team", icon: Users, testId: "team" },
+    { title: t.nav.subscription, url: "/dashboard/subscription", icon: CreditCard, testId: "subscription" },
+    { title: t.nav.admin, url: "/dashboard/admin", icon: Shield, testId: "admin" },
+    { title: t.nav.settings, url: "/dashboard/settings", icon: Settings, testId: "settings" },
+  ];
 
   const handleLogout = () => {
     localStorage.removeItem('sessionId');
@@ -59,12 +62,12 @@ export const DashboardSidebar = () => {
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem key={item.testId}>
                   <SidebarMenuButton asChild>
                     <a
                       href={item.url}
                       className={location === item.url ? "bg-sidebar-accent text-sidebar-accent-foreground" : ""}
-                      data-testid={`link-${item.title.toLowerCase()}`}
+                      data-testid={`link-${item.testId}`}
                     >
                       <item.icon className="h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
@@ -76,7 +79,7 @@ export const DashboardSidebar = () => {
               <SidebarMenuItem>
                 <SidebarMenuButton onClick={handleLogout} data-testid="button-logout">
                   <LogOut className="h-4 w-4" />
-                  {!collapsed && <span>Logout</span>}
+                  {!collapsed && <span>{t.nav.logout}</span>}
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>

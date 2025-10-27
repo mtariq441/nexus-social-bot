@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="pt-32 pb-20 px-4 relative overflow-hidden">
       {/* Animated Gradient Background with Mesh Effect */}
@@ -24,20 +27,16 @@ export const Hero = () => {
             className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2 mb-8 hover:shadow-glow-sm transition-all"
           >
             <Sparkles className="w-4 h-4 text-primary animate-pulse-glow" />
-            <span className="text-sm font-medium">AI-Powered Social Media Management</span>
+            <span className="text-sm font-medium">{t.landing.hero.badge}</span>
           </motion.div>
           
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl font-bold mb-6 gradient-text"
           >
-            <span className="gradient-text">Manage All Your</span>
-            <br />
-            <span className="gradient-text">Social Media</span>
-            <br />
-            <span className="text-foreground">in One Place</span>
+            {t.landing.hero.title}
           </motion.h1>
           
           <motion.p
@@ -46,7 +45,7 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Schedule posts, respond to messages, track analytics, and automate engagement across all platforms with AI-powered tools.
+            {t.landing.hero.subtitle}
           </motion.p>
           
           <motion.div
@@ -61,7 +60,7 @@ export const Hero = () => {
                 className="group btn-premium bg-gradient-to-r from-primary to-accent hover:shadow-glow-lg text-white border-0" 
                 data-testid="button-start-trial"
               >
-                Start Free Trial
+                {t.landing.hero.cta}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -71,7 +70,7 @@ export const Hero = () => {
               className="glass hover:shadow-glow-sm transition-all" 
               data-testid="button-demo"
             >
-              Watch Demo
+              {t.landing.hero.watchDemo}
             </Button>
           </motion.div>
           
@@ -82,9 +81,9 @@ export const Hero = () => {
             className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             {[
-              { value: '10+', label: 'Platforms' },
-              { value: '50K+', label: 'Active Users' },
-              { value: '99.9%', label: 'Uptime' }
+              { value: '10+', label: t.landing.hero.stats.platforms },
+              { value: '50K+', label: t.landing.hero.stats.users },
+              { value: '99.9%', label: t.landing.hero.stats.uptime }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

@@ -3,53 +3,33 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-
-const plans = [
-  {
-    name: "Starter",
-    price: "$29",
-    description: "Perfect for individuals and small teams",
-    features: [
-      "3 social accounts",
-      "30 scheduled posts/month",
-      "Basic analytics",
-      "Email support",
-      "AI caption suggestions",
-    ],
-  },
-  {
-    name: "Professional",
-    price: "$79",
-    description: "For growing businesses",
-    features: [
-      "10 social accounts",
-      "Unlimited scheduled posts",
-      "Advanced analytics",
-      "Priority support",
-      "AI automation",
-      "Team collaboration (5 users)",
-      "Custom reports",
-    ],
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "$199",
-    description: "For large organizations",
-    features: [
-      "Unlimited social accounts",
-      "Unlimited scheduled posts",
-      "Enterprise analytics",
-      "24/7 dedicated support",
-      "Full AI automation suite",
-      "Unlimited team members",
-      "White-label options",
-      "API access",
-    ],
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const Pricing = () => {
+  const { t } = useLanguage();
+  
+  const plans = [
+    {
+      name: t.landing.pricing.plans.starter.name,
+      price: "$29",
+      description: t.landing.pricing.plans.starter.description,
+      features: t.landing.pricing.plans.starter.features,
+    },
+    {
+      name: t.landing.pricing.plans.professional.name,
+      price: "$79",
+      description: t.landing.pricing.plans.professional.description,
+      features: t.landing.pricing.plans.professional.features,
+      popular: true,
+    },
+    {
+      name: t.landing.pricing.plans.enterprise.name,
+      price: "$199",
+      description: t.landing.pricing.plans.enterprise.description,
+      features: t.landing.pricing.plans.enterprise.features,
+    },
+  ];
+
   return (
     <section id="pricing" className="py-20 px-4 relative overflow-hidden">
       {/* Background Effects */}
@@ -63,11 +43,11 @@ export const Pricing = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">
-            Simple, <span className="gradient-text">Transparent Pricing</span>
+          <h2 className="text-4xl font-bold mb-4 gradient-text">
+            {t.landing.pricing.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Choose the perfect plan for your needs. All plans include a 14-day free trial.
+            {t.landing.pricing.subtitle}
           </p>
         </motion.div>
         
@@ -98,7 +78,7 @@ export const Pricing = () => {
                         animate={{ y: [0, -2, 0] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        Most Popular
+                        {t.landing.pricing.mostPopular}
                       </motion.span>
                     </div>
                   </>
@@ -108,7 +88,7 @@ export const Pricing = () => {
                   <CardTitle className="text-2xl mb-2">{plan.name}</CardTitle>
                   <div className="mb-2">
                     <span className="text-5xl font-bold gradient-text">{plan.price}</span>
-                    <span className="text-muted-foreground">/month</span>
+                    <span className="text-muted-foreground">{t.landing.pricing.perMonth}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </CardHeader>
@@ -142,7 +122,7 @@ export const Pricing = () => {
                       variant={plan.popular ? "default" : "outline"}
                       data-testid={`button-plan-${plan.name.toLowerCase()}`}
                     >
-                      Start Free Trial
+                      {t.landing.pricing.startFreeTrial}
                     </Button>
                   </Link>
                 </CardContent>

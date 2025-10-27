@@ -11,13 +11,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Search, Bell, Settings, User, LogOut, Moon, Sun } from "lucide-react";
+import { Search, Bell, Settings, User, LogOut, Moon, Sun, Languages } from "lucide-react";
 import { useLocation } from "wouter";
 import { useTheme } from "@/components/ThemeProvider";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const DashboardTopbar = () => {
   const [location, setLocation] = useLocation();
   const { theme, toggleTheme } = useTheme();
+  const { t, language, setLanguage } = useLanguage();
 
   // Generate breadcrumbs from current path
   const pathSegments = location.split('/').filter(Boolean);
@@ -59,11 +61,36 @@ export const DashboardTopbar = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search..."
+              placeholder={t.common.search + "..."}
               className="pl-9 w-64"
               data-testid="input-search"
             />
           </div>
+
+          {/* Language Switcher */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" data-testid="button-language-switcher">
+                <Languages className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem 
+                onClick={() => setLanguage('fr')} 
+                className={language === 'fr' ? 'bg-accent' : ''}
+                data-testid="menu-language-fr"
+              >
+                🇫🇷 Français
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => setLanguage('en')}
+                className={language === 'en' ? 'bg-accent' : ''}
+                data-testid="menu-language-en"
+              >
+                🇬🇧 English
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Theme Toggle */}
           <Button
@@ -90,7 +117,7 @@ export const DashboardTopbar = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-80">
-              <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+              <DropdownMenuLabel>{t.settings.notifications}</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <div className="space-y-2 p-2">
                 <div className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 cursor-pointer">
@@ -139,16 +166,16 @@ export const DashboardTopbar = () => {
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => setLocation("/dashboard/settings")} data-testid="menu-profile">
                 <User className="mr-2 h-4 w-4" />
-                Profile
+                {t.settings.profile}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setLocation("/dashboard/settings")} data-testid="menu-settings">
                 <Settings className="mr-2 h-4 w-4" />
-                Settings
+                {t.nav.settings}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout} data-testid="menu-logout">
                 <LogOut className="mr-2 h-4 w-4" />
-                Logout
+                {t.nav.logout}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

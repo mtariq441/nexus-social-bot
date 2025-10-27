@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { MessageSquare, Menu, X } from "lucide-react";
+import { MessageSquare, Menu, X, Languages } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/components/LanguageProvider";
+import { Language } from "@/lib/translations";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, language, setLanguage } = useLanguage();
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'fr' : 'en');
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
@@ -23,19 +30,40 @@ export const Navbar = () => {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            {['features', 'pricing', 'testimonials'].map((item) => (
-              <a
-                key={item}
-                href={`#${item}`}
-                className="text-foreground/70 hover:text-foreground transition-colors relative group"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
+            <a
+              href="#features"
+              className="text-foreground/70 hover:text-foreground transition-colors relative group"
+            >
+              {t.landing.navbar.features}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
+            </a>
+            <a
+              href="#pricing"
+              className="text-foreground/70 hover:text-foreground transition-colors relative group"
+            >
+              {t.landing.navbar.pricing}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
+            </a>
+            <a
+              href="#testimonials"
+              className="text-foreground/70 hover:text-foreground transition-colors relative group"
+            >
+              {t.landing.navbar.testimonials}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
+            </a>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="hover:shadow-glow-sm transition-all"
+              data-testid="button-language"
+            >
+              <Languages className="w-4 h-4 mr-2" />
+              {language.toUpperCase()}
+            </Button>
             <Link href="/auth">
               <Button variant="ghost" className="hover:shadow-glow-sm transition-all" data-testid="button-login">
-                Login
+                {t.landing.navbar.login}
               </Button>
             </Link>
             <Link href="/auth">
@@ -43,7 +71,7 @@ export const Navbar = () => {
                 className="btn-premium bg-gradient-to-r from-primary to-accent text-white border-0 hover:shadow-glow-md" 
                 data-testid="button-signup"
               >
-                Start Free Trial
+                {t.landing.navbar.signup}
               </Button>
             </Link>
           </div>
@@ -68,19 +96,38 @@ export const Navbar = () => {
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4 border-t border-border/50">
-                {['features', 'pricing', 'testimonials'].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item}`}
-                    className="block text-foreground/80 hover:text-foreground py-2 px-4 rounded-lg hover:bg-muted/50 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </a>
-                ))}
+                <a
+                  href="#features"
+                  className="block text-foreground/80 hover:text-foreground py-2 px-4 rounded-lg hover:bg-muted/50 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t.landing.navbar.features}
+                </a>
+                <a
+                  href="#pricing"
+                  className="block text-foreground/80 hover:text-foreground py-2 px-4 rounded-lg hover:bg-muted/50 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t.landing.navbar.pricing}
+                </a>
+                <a
+                  href="#testimonials"
+                  className="block text-foreground/80 hover:text-foreground py-2 px-4 rounded-lg hover:bg-muted/50 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t.landing.navbar.testimonials}
+                </a>
+                <Button
+                  variant="ghost"
+                  onClick={toggleLanguage}
+                  className="w-full justify-start"
+                >
+                  <Languages className="w-4 h-4 mr-2" />
+                  {language.toUpperCase()}
+                </Button>
                 <Link href="/auth">
                   <Button className="w-full btn-premium bg-gradient-to-r from-primary to-accent text-white border-0">
-                    Get Started
+                    {t.landing.navbar.signup}
                   </Button>
                 </Link>
               </div>

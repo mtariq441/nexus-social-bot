@@ -1,41 +1,44 @@
 import { Calendar, MessageSquare, BarChart3, Zap, Shield, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-
-const features = [
-  {
-    icon: Calendar,
-    title: "Smart Scheduler",
-    description: "Schedule posts across all platforms with optimal timing recommendations powered by AI.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Unified Inbox",
-    description: "Manage DMs, comments, and reviews from all platforms in one central location.",
-  },
-  {
-    icon: Zap,
-    title: "AI Automation",
-    description: "Automate responses, generate captions, and handle routine tasks with AI.",
-  },
-  {
-    icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "Track performance metrics, engagement rates, and growth across all channels.",
-  },
-  {
-    icon: Shield,
-    title: "Team Collaboration",
-    description: "Work together with your team, assign tasks, and manage permissions easily.",
-  },
-  {
-    icon: Users,
-    title: "Multi-Platform Support",
-    description: "Connect Instagram, Facebook, Twitter, LinkedIn, and Google My Business.",
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const Features = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: Calendar,
+      title: t.landing.features.cards.scheduler.title,
+      description: t.landing.features.cards.scheduler.description,
+    },
+    {
+      icon: MessageSquare,
+      title: t.landing.features.cards.inbox.title,
+      description: t.landing.features.cards.inbox.description,
+    },
+    {
+      icon: Zap,
+      title: t.landing.features.cards.automation.title,
+      description: t.landing.features.cards.automation.description,
+    },
+    {
+      icon: BarChart3,
+      title: t.landing.features.cards.analytics.title,
+      description: t.landing.features.cards.analytics.description,
+    },
+    {
+      icon: Shield,
+      title: t.landing.features.cards.collaboration.title,
+      description: t.landing.features.cards.collaboration.description,
+    },
+    {
+      icon: Users,
+      title: t.landing.features.cards.multiPlatform.title,
+      description: t.landing.features.cards.multiPlatform.description,
+    },
+  ];
+
   return (
     <section id="features" className="py-20 px-4 bg-muted/30 dark:bg-muted/10 relative overflow-hidden">
       {/* Background Gradient Orbs */}
@@ -50,11 +53,11 @@ export const Features = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Everything You Need</span> to Succeed
+          <h2 className="text-4xl font-bold mb-4 gradient-text">
+            {t.landing.features.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Powerful features designed to streamline your social media management workflow
+            {t.landing.features.subtitle}
           </p>
         </motion.div>
         

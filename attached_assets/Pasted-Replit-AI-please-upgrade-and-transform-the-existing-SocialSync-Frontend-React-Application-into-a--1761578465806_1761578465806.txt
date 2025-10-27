@@ -1,0 +1,115 @@
+Replit AI, please upgrade and transform the existing SocialSync - Frontend React Application into a premium, AI-powered French SaaS social media management platform (100% localized UI text in French).
+
+Keep the frontend-only React + TypeScript + Tailwind CSS + shadcn/ui stack, but dramatically improve the UI/UX, visual hierarchy, and perceived functionality — as if it were a real SaaS dashboard for paying customers.
+
+🌍 Localization & Branding
+
+Convert all UI text, buttons, forms, modals, and placeholders into French (100%).
+
+Add a language switcher (EN / FR) in the Settings page.
+
+Update brand visuals (logo, accent colors, gradients) to feel modern and tech-forward, like Notion or Buffer.
+
+Add dark/light mode toggle with smooth animation and localStorage persistence.
+
+🧠 AI-Driven Features (Frontend Mock)
+
+AI Caption Generator – Input topic, auto-generate engaging French captions with hashtags.
+
+AI Hashtag Recommender – Suggest trending hashtags based on the post content.
+
+AI Analytics Insights – Generate “smart insights” text cards (mock data) like “Vos publications du mercredi génèrent 20 % plus d’engagement.”
+
+AI Post Optimizer – Rate a post draft (mock) with badges like “Excellent timing” or “Hashtags à améliorer.”
+
+🗓️ Scheduling System
+
+Advanced calendar view (Day / Week / Month) with drag-and-drop post blocks.
+
+Add mock “auto-post” simulation (show status as “scheduled”, “in progress”, “published”).
+
+Include platform-specific icons (FB, IG, X, LinkedIn, TikTok) on each post card.
+
+💬 Unified Inbox (Boîte de réception unifiée)
+
+Add platform filters (Facebook, Instagram, etc.).
+
+Include mock conversation history, search, and AI quick-reply suggestions.
+
+Add a Smart Priority System that marks messages as Important, Non lu, or Répondu.
+
+📊 Analytics Dashboard (Tableau de bord analytique)
+
+Build beautiful interactive charts (Recharts or Chart.js).
+
+Add multiple widgets:
+
+Engagement rate by platform
+
+Followers growth trend
+
+Best posting time heatmap
+
+Top-performing content by format
+
+Add AI-generated Insights cards summarizing performance trends.
+
+🧑‍💻 Team Collaboration (Équipe)
+
+Add mock team roles (Admin, Éditeur, Analyste).
+
+Include an Invite Member Modal (frontend only).
+
+Add team activity logs (e.g., “Sophie a programmé une publication sur Instagram”).
+
+🔗 Integrations (Intégrations)
+
+Create dynamic integration cards with logos, connection buttons, and mock OAuth states (connected/disconnected).
+
+Add visual feedback animations (pulse, success checkmark).
+
+⚙️ Settings (Paramètres)
+
+Tabs: Profil, Facturation, Notifications, Langue, Sécurité, Équipe.
+
+Add mock billing summary UI (plan name, renewal date, upgrade button).
+
+Add Language toggle between English and French.
+
+💎 UI & Design Enhancements
+
+Use shadcn/ui, Radix UI, and Tailwind animations for smooth transitions.
+
+Add micro-interactions: hover glow, smooth cards, slide-in modals, loading skeletons.
+
+Maintain consistent color palette (Primary: Indigo 600 / Accent: Purple 500).
+
+Make everything fully responsive and look premium on mobile/tablet.
+
+⚡ Performance & SaaS Feel
+
+Include loading states, onboarding walkthrough modal, and a welcome dashboard animation.
+
+Simulate a “Pro vs Free Plan” section on the dashboard (frontend-only).
+
+Add mock “Upgrade Plan” button that opens a modal with plan tiers.
+
+🧩 Tech Requirements
+
+Keep all existing files and architecture clean.
+
+Use TypeScript types for new components.
+
+Maintain Vite + Tailwind + shadcn/ui setup.
+
+Deployment config:
+
+Build command: npm run build
+
+Output directory: dist/
+
+Hosting: Replit autoscale (static)
+
+🎯 Goal
+
+Create SocialSync — French Edition, an AI-enhanced, SaaS-ready social media management platform UI that feels enterprise-level and client-ready, with smart UI, polished visuals, and mock AI automation.
