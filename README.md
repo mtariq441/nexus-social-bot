@@ -56,9 +56,9 @@ This project is built with:
 
 ## How can I deploy this project?
 
-### Deploy to Lovable
+### Deploy to render
 
-Simply open [Lovable](https://lovable.dev/projects/c008267a-4501-41ed-91bc-b5f24677a23e) and click on Share -> Publish.
+Simply open https://nexus-social-bot.onrender.com/ and click on Share -> Publish.
 
 ### Deploy to Render
 
@@ -93,4 +93,4 @@ Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Read more here: [Setting up a custom domain](https://nexus-social-bot.onrender.com/)
