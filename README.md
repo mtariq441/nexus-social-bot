@@ -1,84 +1,109 @@
-Welcome to the Social-Bot Project
-🌐 Project Info
+SocialSync - Frontend React Application
+Overview
+SocialSync is a frontend-only social media management platform UI built with React, TypeScript, and Tailwind CSS. The application provides a modern, responsive interface for social media management features including scheduling posts, managing a unified inbox, tracking analytics, and viewing integrations.
 
-Live Preview: https://nexus-social-bot.onrender.com/
+Current Status: Frontend-only React + Tailwind CSS application (October 24, 2025). Note: This is a UI-only application with no backend. Authentication is mock-only and non-persistent.
 
-🧠 How to Edit the Code
+User Preferences
+Preferred communication style: Simple, everyday language.
 
-You can edit and develop this project locally using your preferred IDE.
+Project Structure
+workspace/
+├── client/              # Frontend React application
+│   ├── index.html       # HTML entry point
+│   └── src/
+│       ├── components/  # Reusable React components
+│       ├── pages/       # Page components for routing
+│       ├── lib/         # Utility functions and queryClient
+│       └── hooks/       # Custom React hooks
+├── public/              # Static assets
+├── vite.config.ts       # Vite configuration
+├── tailwind.config.ts   # Tailwind CSS configuration
+└── package.json         # Dependencies and scripts
+System Architecture
+Frontend Architecture
+Framework & Build System
 
-Steps to Set Up Locally:
-# Step 1: Clone the repository using the Git URL
-git clone <YOUR_GIT_URL>
+React 18 with TypeScript for type-safe component development
+Vite as the build tool and development server for fast hot module replacement
+Wouter for client-side routing (lightweight alternative to React Router)
+Vite configured with root set to client/ directory
+Production build outputs to dist/ directory
+UI Component System
 
-# Step 2: Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
+Radix UI primitives for accessible, unstyled component foundations
+shadcn/ui component library built on top of Radix UI
+Tailwind CSS for utility-first styling with custom design system
+Custom theme using CSS variables for consistent colors and spacing (primary: HSL 221 83% 53%, accent: HSL 262 83% 58%)
+State Management
 
-# Step 3: Install dependencies
-npm install
+TanStack Query (React Query v5) configured for client-side state management
+React hooks for local component state
+localStorage for client-side data persistence
+Key Pages & Features
 
-# Step 4: Start the development server
-npm run dev
+Landing page with marketing sections (Hero, Features, Pricing, Testimonials)
+Mock authentication flow (signup/login) with client-side redirect
+Dashboard with stats cards showing scheduled posts, pending messages, followers, and engagement
+Post Composer for creating and scheduling social media content
+Unified Inbox for managing messages across all platforms
+Analytics dashboard with engagement metrics and performance tracking
+Integrations page for connecting social media accounts
+Settings panel for profile, notifications, billing, and team management
+External Dependencies
+UI Component Libraries
 
-💻 Technologies Used
+@radix-ui/* - Complete suite of accessible UI primitives
+cmdk - Command palette component
+embla-carousel-react - Touch-friendly carousel
+lucide-react - Icon library
+class-variance-authority - Component variant utility
+clsx & tailwind-merge - CSS class utilities
+Form & Validation
 
-This project is built with:
+react-hook-form - Form state management
+@hookform/resolvers - Zod integration
+zod - Schema validation library
+Data Fetching & State
 
-Vite
+@tanstack/react-query - Client state management
+Styling & CSS
 
-TypeScript
+tailwindcss - Utility-first CSS framework
+autoprefixer - PostCSS plugin
+postcss - CSS transformation tool
+Routing
 
-React
+wouter - Lightweight routing library (~1.2KB)
+Date Handling
 
-shadcn/ui
+date-fns - Modern date utility library
+TypeScript & Linting
 
-Tailwind CSS
+typescript & typescript-eslint - Type checking and linting
+@types/* - Type definitions
+eslint - JavaScript/TypeScript linter with React-specific rules
+Development Scripts
+npm run dev - Starts the Vite development server on port 5000
+npm run build - Builds the production bundle to dist/
+npm run preview - Preview the production build locally
+npm run lint - Runs ESLint on the codebase
+Deployment
+This application is configured for static hosting on Replit's autoscale deployment:
 
-🚀 Deployment Guide
-Option 1: Deploy as a Static Site (Recommended)
+Build command: npm run build
+Output directory: dist/
+Deployment target: autoscale (suitable for static frontend apps)
+Development History
+October 27, 2025:
 
-Go to your Render Dashboard
-.
-
-Create a new Static Site.
-
-Connect your GitHub repository.
-
-Configure the build settings:
-
-Build Command: npm install && npm run build
-
-Publish Directory: dist
-
-Click Create Static Site to deploy.
-
-Option 2: Deploy as a Web Service
-
-Go to your Render Dashboard
-.
-
-Create a new Web Service.
-
-Configure the settings:
-
-Environment: Node
-
-Build Command: npm install && npm run build
-
-Start Command: npm run start
-
-Render automatically sets the PORT environment variable.
-
-Your app will deploy automatically on every push to the main branch.
-
-🌍 Custom Domain
-
-To connect a custom domain:
-
-Go to your project’s Render Dashboard.
-
-Navigate to Settings → Custom Domains.
-
-Click Add Custom Domain and follow the instructions.
-
-Read more here: Render Domain Setup Guide
+Built as a pure custom React + TypeScript application on Replit
+Frontend-only architecture with Vite development server
+Mock authentication for demonstration purposes
+Client-side state management with TanStack Query
+Custom UI components built with shadcn/ui and Radix UI
+Important Notes
+Authentication: The authentication is mock-only and non-persistent. Login/signup forms redirect to the dashboard without actual authentication.
+Data Persistence: All data is client-side only. No backend API or database is connected.
+Static Build: The app builds to static HTML/CSS/JS files suitable for any static hosting provider.
+Development Server: Runs on port 5000 with hot module replacement via Vite.
