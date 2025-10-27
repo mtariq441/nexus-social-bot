@@ -28,10 +28,34 @@ export interface Translations {
     composePost: string;
     manageInbox: string;
     viewAnalytics: string;
+    // Stat changes
+    changeFromLastWeek: string;
+    acrossPlatforms: string;
+    changeThisMonth: string;
+    // Descriptions
+    engagementTrendSubtitle: string;
+    latestUpdatesSubtitle: string;
+    // Activity items
+    activityNewComment: string;
+    activityPostScheduled: string;
+    activityEngagementIncreased: string;
+    activityDmReceived: string;
+    activityVideoPublished: string;
+    // Quick action descriptions
+    quickActionCreatePost: string;
+    quickActionManageInbox: string;
+    quickActionViewAnalytics: string;
+    // Time formats
+    minutesAgo: string;
+    hourAgo: string;
+    hoursAgo: string;
+    dayAgo: string;
+    daysAgo: string;
   };
   // Composer
   composer: {
     title: string;
+    subtitle: string;
     createPost: string;
     postContent: string;
     placeholderPost: string;
@@ -366,9 +390,28 @@ export const translations: Record<Language, Translations> = {
       composePost: 'Compose Post',
       manageInbox: 'Manage Inbox',
       viewAnalytics: 'View Analytics',
+      changeFromLastWeek: '+{value} from last week',
+      acrossPlatforms: 'Across all platforms',
+      changeThisMonth: '+{value}% this month',
+      engagementTrendSubtitle: 'Your engagement trend over the past week',
+      latestUpdatesSubtitle: 'Latest updates from your accounts',
+      activityNewComment: 'New comment on Instagram',
+      activityPostScheduled: 'Post scheduled for tomorrow',
+      activityEngagementIncreased: 'LinkedIn engagement increased',
+      activityDmReceived: 'Twitter DM received',
+      activityVideoPublished: 'YouTube video published',
+      quickActionCreatePost: 'Create and schedule posts across all platforms',
+      quickActionManageInbox: 'View and respond to all messages in one place',
+      quickActionViewAnalytics: 'Track performance and insights',
+      minutesAgo: '{value} minutes ago',
+      hourAgo: '1 hour ago',
+      hoursAgo: '{value} hours ago',
+      dayAgo: '1 day ago',
+      daysAgo: '{value} days ago',
     },
     composer: {
       title: 'Compose Post',
+      subtitle: 'Create and schedule your social media posts',
       createPost: 'Create New Post',
       postContent: 'Post Content',
       placeholderPost: 'What would you like to share?',
@@ -747,9 +790,28 @@ export const translations: Record<Language, Translations> = {
       composePost: 'Composer une publication',
       manageInbox: 'Gérer la boîte de réception',
       viewAnalytics: 'Voir les analytiques',
+      changeFromLastWeek: '+{value} depuis la semaine dernière',
+      acrossPlatforms: 'Toutes plateformes confondues',
+      changeThisMonth: '+{value}% ce mois-ci',
+      engagementTrendSubtitle: 'Votre tendance d\'engagement au cours de la semaine passée',
+      latestUpdatesSubtitle: 'Dernières mises à jour de vos comptes',
+      activityNewComment: 'Nouveau commentaire sur Instagram',
+      activityPostScheduled: 'Publication programmée pour demain',
+      activityEngagementIncreased: 'Engagement LinkedIn en hausse',
+      activityDmReceived: 'Message direct Twitter reçu',
+      activityVideoPublished: 'Vidéo YouTube publiée',
+      quickActionCreatePost: 'Créer et programmer des publications sur toutes les plateformes',
+      quickActionManageInbox: 'Voir et répondre à tous les messages en un seul endroit',
+      quickActionViewAnalytics: 'Suivre les performances et les statistiques',
+      minutesAgo: 'Il y a {value} minutes',
+      hourAgo: 'Il y a 1 heure',
+      hoursAgo: 'Il y a {value} heures',
+      dayAgo: 'Il y a 1 jour',
+      daysAgo: 'Il y a {value} jours',
     },
     composer: {
       title: 'Composer une publication',
+      subtitle: 'Créer et programmer vos publications sur les réseaux sociaux',
       createPost: 'Créer une nouvelle publication',
       postContent: 'Contenu de la publication',
       placeholderPost: 'Que souhaitez-vous partager ?',

@@ -93,7 +93,7 @@ const Composer = () => {
           <h1 className="text-3xl font-bold gradient-text" data-testid="text-composer-title">
             {t.composer.title}
           </h1>
-          <p className="text-muted-foreground">Create and schedule your social media posts</p>
+          <p className="text-muted-foreground">{t.composer.subtitle}</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-6">

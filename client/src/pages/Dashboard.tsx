@@ -55,28 +55,28 @@ const Dashboard = () => {
     {
       label: t.dashboard.scheduledPosts,
       value: "24",
-      change: "+3 from last week",
+      change: t.dashboard.changeFromLastWeek.replace('{value}', '3'),
       icon: Calendar,
       trend: "up",
     },
     {
       label: t.dashboard.pendingMessages,
       value: "12",
-      change: "Across all platforms",
+      change: t.dashboard.acrossPlatforms,
       icon: MessageSquare,
       trend: "neutral",
     },
     {
       label: t.dashboard.totalFollowers,
       value: "45.2K",
-      change: "+12% this month",
+      change: t.dashboard.changeThisMonth.replace('{value}', '12'),
       icon: Users,
       trend: "up",
     },
     {
       label: t.dashboard.engagementRate,
       value: "8.3%",
-      change: "+2.1% from last week",
+      change: t.dashboard.changeFromLastWeek.replace('{value}', '2.1'),
       icon: TrendingUp,
       trend: "up",
     },
@@ -93,11 +93,11 @@ const Dashboard = () => {
   ];
 
   const recentActivity = [
-    { action: "New comment on Instagram", time: "2 minutes ago", platform: "Instagram" },
-    { action: "Post scheduled for tomorrow", time: "15 minutes ago", platform: "Facebook" },
-    { action: "LinkedIn engagement increased", time: "1 hour ago", platform: "LinkedIn" },
-    { action: "Twitter DM received", time: "2 hours ago", platform: "Twitter" },
-    { action: "YouTube video published", time: "3 hours ago", platform: "YouTube" },
+    { action: t.dashboard.activityNewComment, time: t.dashboard.minutesAgo.replace('{value}', '2'), platform: "Instagram" },
+    { action: t.dashboard.activityPostScheduled, time: t.dashboard.minutesAgo.replace('{value}', '15'), platform: "Facebook" },
+    { action: t.dashboard.activityEngagementIncreased, time: t.dashboard.hourAgo, platform: "LinkedIn" },
+    { action: t.dashboard.activityDmReceived, time: t.dashboard.hoursAgo.replace('{value}', '2'), platform: "Twitter" },
+    { action: t.dashboard.activityVideoPublished, time: t.dashboard.hoursAgo.replace('{value}', '3'), platform: "YouTube" },
   ];
 
   return (
@@ -165,7 +165,7 @@ const Dashboard = () => {
             <Card className="glass border-2 border-border/50 hover:border-primary/30 transition-all">
               <CardHeader>
                 <CardTitle>{t.dashboard.weeklyEngagement}</CardTitle>
-                <CardDescription>Your engagement trend over the past week</CardDescription>
+                <CardDescription>{t.dashboard.engagementTrendSubtitle}</CardDescription>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -218,7 +218,7 @@ const Dashboard = () => {
             <Card className="glass border-2 border-border/50 hover:border-primary/30 transition-all">
               <CardHeader>
                 <CardTitle>{t.dashboard.recentActivity}</CardTitle>
-                <CardDescription>Latest updates from your accounts</CardDescription>
+                <CardDescription>{t.dashboard.latestUpdatesSubtitle}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -270,7 +270,7 @@ const Dashboard = () => {
             {
               icon: Calendar,
               title: t.dashboard.composePost,
-              description: "Create and schedule posts across all platforms",
+              description: t.dashboard.quickActionCreatePost,
               link: "/dashboard/composer",
               buttonText: t.dashboard.composePost,
               buttonVariant: "default",
@@ -279,7 +279,7 @@ const Dashboard = () => {
             {
               icon: Inbox,
               title: t.dashboard.manageInbox,
-              description: "View and respond to all messages in one place",
+              description: t.dashboard.quickActionManageInbox,
               link: "/dashboard/inbox",
               buttonText: t.dashboard.manageInbox,
               buttonVariant: "outline",
@@ -288,7 +288,7 @@ const Dashboard = () => {
             {
               icon: BarChart3,
               title: t.dashboard.viewAnalytics,
-              description: "Track performance and insights",
+              description: t.dashboard.quickActionViewAnalytics,
               link: "/dashboard/analytics",
               buttonText: t.dashboard.viewAnalytics,
               buttonVariant: "outline",

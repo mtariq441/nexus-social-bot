@@ -102,7 +102,7 @@ const Settings = () => {
       id: 1, 
       device: "Windows PC", 
       location: "Paris, France", 
-      lastActive: "2 min ago",
+      lastActive: t.dashboard.minutesAgo.replace('{value}', '2'),
       current: true,
       icon: Laptop
     },
@@ -110,7 +110,7 @@ const Settings = () => {
       id: 2, 
       device: "iPhone 15", 
       location: "Lyon, France", 
-      lastActive: "2 days ago",
+      lastActive: t.dashboard.daysAgo.replace('{value}', '2'),
       current: false,
       icon: Smartphone
     },
