@@ -1,96 +1,84 @@
-# Welcome to your  project social-bot
+Welcome to the Social-Bot Project
+🌐 Project Info
 
-## Project info
+Live Preview: https://nexus-social-bot.onrender.com/
 
-https://nexus-social-bot.onrender.com/
+🧠 How to Edit the Code
 
-## How can I edit this code?
+You can edit and develop this project locally using your preferred IDE.
 
-There are several ways of editing your application.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+Steps to Set Up Locally:
+# Step 1: Clone the repository using the Git URL
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Step 2: Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+💻 Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Vite
 
-## How can I deploy this project?
+TypeScript
 
-### Deploy to render
+React
 
-Simply open https://nexus-social-bot.onrender.com/ and click on Share -> Publish.
+shadcn/ui
 
-### Deploy to Render
+Tailwind CSS
 
-This project is configured for easy deployment to Render as a static site or web service.
+🚀 Deployment Guide
+Option 1: Deploy as a Static Site (Recommended)
 
-#### Option 1: Deploy as Static Site (Recommended for Vite/React apps)
+Go to your Render Dashboard
+.
 
-1. Go to [Render Dashboard](https://dashboard.render.com/) and create a new **Static Site**
-2. Connect your GitHub repository
-3. Configure the build settings:
-   - **Build Command**: `npm install && npm run build`
-   - **Publish Directory**: `dist`
-4. Click "Create Static Site"
+Create a new Static Site.
 
-#### Option 2: Deploy as Web Service
+Connect your GitHub repository.
 
-1. Go to [Render Dashboard](https://dashboard.render.com/) and create a new **Web Service**
-2. Connect your GitHub repository
-3. Configure the service settings:
-   - **Name**: Your app name
-   - **Environment**: `Node`
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm run start`
-   - **Port**: Render will automatically set the `PORT` environment variable
-4. Click "Create Web Service"
+Configure the build settings:
 
-Your app will automatically deploy on every push to your main branch.
+Build Command: npm install && npm run build
 
-## Can I connect a custom domain to my Lovable project?
+Publish Directory: dist
 
-Yes, you can!
+Click Create Static Site to deploy.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Option 2: Deploy as a Web Service
 
-Read more here: [Setting up a custom domain](https://nexus-social-bot.onrender.com/)
+Go to your Render Dashboard
+.
+
+Create a new Web Service.
+
+Configure the settings:
+
+Environment: Node
+
+Build Command: npm install && npm run build
+
+Start Command: npm run start
+
+Render automatically sets the PORT environment variable.
+
+Your app will deploy automatically on every push to the main branch.
+
+🌍 Custom Domain
+
+To connect a custom domain:
+
+Go to your project’s Render Dashboard.
+
+Navigate to Settings → Custom Domains.
+
+Click Add Custom Domain and follow the instructions.
+
+Read more here: Render Domain Setup Guide
