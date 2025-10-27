@@ -74,6 +74,7 @@ export interface Translations {
   // Integrations
   integrations: {
     title: string;
+    subtitle: string;
     connected: string;
     notConnected: string;
     connect: string;
@@ -81,6 +82,33 @@ export interface Translations {
     reconnect: string;
     configure: string;
     platforms: string;
+    lastSync: string;
+    accountsConnected: string;
+    confirmDisconnect: string;
+    confirmDisconnectMessage: string;
+    confirmConnect: string;
+    confirmConnectMessage: string;
+    connecting: string;
+    disconnecting: string;
+    connectionSuccess: string;
+    disconnectionSuccess: string;
+    features: string;
+    platformDescriptions: {
+      facebook: string;
+      instagram: string;
+      twitter: string;
+      linkedin: string;
+      tiktok: string;
+      youtube: string;
+    };
+    platformFeatures: {
+      facebook: string[];
+      instagram: string[];
+      twitter: string[];
+      linkedin: string[];
+      tiktok: string[];
+      youtube: string[];
+    };
   };
   // Team
   team: {
@@ -98,6 +126,7 @@ export interface Translations {
   // Settings
   settings: {
     title: string;
+    subtitle: string;
     profile: string;
     billing: string;
     notifications: string;
@@ -107,6 +136,74 @@ export interface Translations {
     plan: string;
     upgrade: string;
     saveChanges: string;
+    profileInfo: string;
+    profilePicture: string;
+    uploadPhoto: string;
+    firstName: string;
+    lastName: string;
+    name: string;
+    email: string;
+    bio: string;
+    bioPlaceholder: string;
+    timezone: string;
+    currentPlan: string;
+    professionalPlan: string;
+    perMonth: string;
+    nextBillingDate: string;
+    changePlan: string;
+    paymentMethod: string;
+    cardEnding: string;
+    expiresDate: string;
+    updatePayment: string;
+    billingHistory: string;
+    invoiceDate: string;
+    invoiceAmount: string;
+    invoiceStatus: string;
+    downloadInvoice: string;
+    paid: string;
+    pending: string;
+    emailNotifications: string;
+    pushNotifications: string;
+    marketingEmails: string;
+    weeklyReports: string;
+    notificationPreferences: string;
+    newMessages: string;
+    scheduledPosts: string;
+    analyticsReports: string;
+    platformAlerts: string;
+    selectLanguage: string;
+    french: string;
+    english: string;
+    languageDescription: string;
+    changePassword: string;
+    currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+    updatePassword: string;
+    twoFactorAuth: string;
+    enable2FA: string;
+    disable2FA: string;
+    twoFactorDescription: string;
+    activeSessions: string;
+    currentSession: string;
+    lastActive: string;
+    revokeSession: string;
+    securityLog: string;
+    dangerZone: string;
+    deleteAccount: string;
+    deleteAccountDescription: string;
+    deleteAccountConfirm: string;
+    exportData: string;
+    exportDataDescription: string;
+    deactivateAccount: string;
+    deactivateAccountDescription: string;
+    settingsSaved: string;
+    settingsSavedDescription: string;
+    passwordUpdated: string;
+    passwordUpdatedDescription: string;
+    january: string;
+    february: string;
+    march: string;
   };
   // Common
   common: {
@@ -311,6 +408,7 @@ export const translations: Record<Language, Translations> = {
     },
     integrations: {
       title: 'Integrations',
+      subtitle: 'Connect your social media accounts',
       connected: 'Connected',
       notConnected: 'Not Connected',
       connect: 'Connect',
@@ -318,6 +416,63 @@ export const translations: Record<Language, Translations> = {
       reconnect: 'Reconnect',
       configure: 'Configure',
       platforms: 'Platforms',
+      lastSync: 'Last sync',
+      accountsConnected: 'accounts connected',
+      confirmDisconnect: 'Confirm Disconnection',
+      confirmDisconnectMessage: 'Are you sure you want to disconnect this platform?',
+      confirmConnect: 'Connect Platform',
+      confirmConnectMessage: 'You will be redirected to authorize this platform.',
+      connecting: 'Connecting...',
+      disconnecting: 'Disconnecting...',
+      connectionSuccess: 'Successfully connected!',
+      disconnectionSuccess: 'Successfully disconnected',
+      features: 'Features',
+      platformDescriptions: {
+        facebook: 'Manage your Facebook pages and groups',
+        instagram: 'Share photos and stories on Instagram',
+        twitter: 'Post tweets and manage your X account',
+        linkedin: 'Publish professional content on LinkedIn',
+        tiktok: 'Create and share viral TikTok videos',
+        youtube: 'Upload and manage YouTube videos',
+      },
+      platformFeatures: {
+        facebook: [
+          'Schedule posts to pages',
+          'Respond to comments and messages',
+          'Manage Facebook ads',
+          'Track page analytics',
+        ],
+        instagram: [
+          'Schedule photos and stories',
+          'Auto-publish to feed',
+          'Manage direct messages',
+          'Track engagement metrics',
+        ],
+        twitter: [
+          'Schedule tweets and threads',
+          'Monitor mentions and replies',
+          'Track trending topics',
+          'Analyze tweet performance',
+        ],
+        linkedin: [
+          'Publish to company pages',
+          'Schedule professional content',
+          'Engage with connections',
+          'Monitor post analytics',
+        ],
+        tiktok: [
+          'Schedule TikTok videos',
+          'Track video performance',
+          'Respond to comments',
+          'Analyze trending sounds',
+        ],
+        youtube: [
+          'Upload and schedule videos',
+          'Manage video metadata',
+          'Respond to comments',
+          'Track channel analytics',
+        ],
+      },
     },
     team: {
       title: 'Team',
@@ -333,6 +488,7 @@ export const translations: Record<Language, Translations> = {
     },
     settings: {
       title: 'Settings',
+      subtitle: 'Manage your account and preferences',
       profile: 'Profile',
       billing: 'Billing',
       notifications: 'Notifications',
@@ -342,6 +498,74 @@ export const translations: Record<Language, Translations> = {
       plan: 'Plan',
       upgrade: 'Upgrade',
       saveChanges: 'Save Changes',
+      profileInfo: 'Profile Information',
+      profilePicture: 'Profile Picture',
+      uploadPhoto: 'Upload Photo',
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      name: 'Name',
+      email: 'Email',
+      bio: 'Bio',
+      bioPlaceholder: 'Tell us about yourself...',
+      timezone: 'Time Zone',
+      currentPlan: 'Current Plan',
+      professionalPlan: 'Professional Plan',
+      perMonth: '/month',
+      nextBillingDate: 'Next billing date',
+      changePlan: 'Change Plan',
+      paymentMethod: 'Payment Method',
+      cardEnding: 'Card ending in',
+      expiresDate: 'Expires',
+      updatePayment: 'Update',
+      billingHistory: 'Billing History',
+      invoiceDate: 'Date',
+      invoiceAmount: 'Amount',
+      invoiceStatus: 'Status',
+      downloadInvoice: 'Download',
+      paid: 'Paid',
+      pending: 'Pending',
+      emailNotifications: 'Email Notifications',
+      pushNotifications: 'Push Notifications',
+      marketingEmails: 'Marketing Emails',
+      weeklyReports: 'Weekly Reports',
+      notificationPreferences: 'Notification Preferences',
+      newMessages: 'New messages',
+      scheduledPosts: 'Scheduled posts',
+      analyticsReports: 'Analytics reports',
+      platformAlerts: 'Platform connection alerts',
+      selectLanguage: 'Select Language',
+      french: 'Français',
+      english: 'English',
+      languageDescription: 'Choose your preferred language for the interface',
+      changePassword: 'Change Password',
+      currentPassword: 'Current Password',
+      newPassword: 'New Password',
+      confirmPassword: 'Confirm Password',
+      updatePassword: 'Update Password',
+      twoFactorAuth: 'Two-Factor Authentication',
+      enable2FA: 'Enable 2FA',
+      disable2FA: 'Disable 2FA',
+      twoFactorDescription: 'Add an extra layer of security to your account',
+      activeSessions: 'Active Sessions',
+      currentSession: 'Current Session',
+      lastActive: 'Last Active',
+      revokeSession: 'Revoke',
+      securityLog: 'Security Log',
+      dangerZone: 'Danger Zone',
+      deleteAccount: 'Delete Account',
+      deleteAccountDescription: 'Permanently delete your account and all data',
+      deleteAccountConfirm: 'Delete My Account',
+      exportData: 'Export Data',
+      exportDataDescription: 'Download all your account data',
+      deactivateAccount: 'Deactivate Account',
+      deactivateAccountDescription: 'Temporarily disable your account',
+      settingsSaved: 'Settings Saved',
+      settingsSavedDescription: 'Your settings have been updated successfully',
+      passwordUpdated: 'Password Updated',
+      passwordUpdatedDescription: 'Your password has been changed successfully',
+      january: 'January',
+      february: 'February',
+      march: 'March',
     },
     common: {
       save: 'Save',
@@ -565,6 +789,7 @@ export const translations: Record<Language, Translations> = {
     },
     integrations: {
       title: 'Intégrations',
+      subtitle: 'Connectez vos comptes de réseaux sociaux',
       connected: 'Connecté',
       notConnected: 'Non connecté',
       connect: 'Connecter',
@@ -572,6 +797,63 @@ export const translations: Record<Language, Translations> = {
       reconnect: 'Reconnecter',
       configure: 'Configurer',
       platforms: 'Plateformes',
+      lastSync: 'Dernière synchro',
+      accountsConnected: 'comptes connectés',
+      confirmDisconnect: 'Confirmer la déconnexion',
+      confirmDisconnectMessage: 'Êtes-vous sûr de vouloir déconnecter cette plateforme ?',
+      confirmConnect: 'Connecter la plateforme',
+      confirmConnectMessage: 'Vous serez redirigé pour autoriser cette plateforme.',
+      connecting: 'Connexion en cours...',
+      disconnecting: 'Déconnexion en cours...',
+      connectionSuccess: 'Connexion réussie !',
+      disconnectionSuccess: 'Déconnexion réussie',
+      features: 'Fonctionnalités',
+      platformDescriptions: {
+        facebook: 'Gérez vos pages et groupes Facebook',
+        instagram: 'Partagez photos et stories sur Instagram',
+        twitter: 'Publiez des tweets et gérez votre compte X',
+        linkedin: 'Publiez du contenu professionnel sur LinkedIn',
+        tiktok: 'Créez et partagez des vidéos TikTok virales',
+        youtube: 'Uploadez et gérez vos vidéos YouTube',
+      },
+      platformFeatures: {
+        facebook: [
+          'Programmer des publications sur les pages',
+          'Répondre aux commentaires et messages',
+          'Gérer les publicités Facebook',
+          'Suivre les analytiques de page',
+        ],
+        instagram: [
+          'Programmer photos et stories',
+          'Publication automatique sur le fil',
+          'Gérer les messages directs',
+          'Suivre les métriques d\'engagement',
+        ],
+        twitter: [
+          'Programmer tweets et threads',
+          'Surveiller mentions et réponses',
+          'Suivre les sujets tendances',
+          'Analyser la performance des tweets',
+        ],
+        linkedin: [
+          'Publier sur les pages entreprise',
+          'Programmer du contenu professionnel',
+          'Interagir avec les connexions',
+          'Suivre les analytiques des publications',
+        ],
+        tiktok: [
+          'Programmer des vidéos TikTok',
+          'Suivre la performance des vidéos',
+          'Répondre aux commentaires',
+          'Analyser les sons tendances',
+        ],
+        youtube: [
+          'Uploader et programmer des vidéos',
+          'Gérer les métadonnées vidéo',
+          'Répondre aux commentaires',
+          'Suivre les analytiques de chaîne',
+        ],
+      },
     },
     team: {
       title: 'Équipe',
@@ -587,6 +869,7 @@ export const translations: Record<Language, Translations> = {
     },
     settings: {
       title: 'Paramètres',
+      subtitle: 'Gérez votre compte et vos préférences',
       profile: 'Profil',
       billing: 'Facturation',
       notifications: 'Notifications',
@@ -596,6 +879,74 @@ export const translations: Record<Language, Translations> = {
       plan: 'Forfait',
       upgrade: 'Mettre à niveau',
       saveChanges: 'Enregistrer les modifications',
+      profileInfo: 'Informations du profil',
+      profilePicture: 'Photo de profil',
+      uploadPhoto: 'Télécharger une photo',
+      firstName: 'Prénom',
+      lastName: 'Nom',
+      name: 'Nom',
+      email: 'Email',
+      bio: 'Biographie',
+      bioPlaceholder: 'Parlez-nous de vous...',
+      timezone: 'Fuseau horaire',
+      currentPlan: 'Forfait actuel',
+      professionalPlan: 'Plan Professionnel',
+      perMonth: '/mois',
+      nextBillingDate: 'Prochaine facturation',
+      changePlan: 'Changer de forfait',
+      paymentMethod: 'Moyen de paiement',
+      cardEnding: 'Carte se terminant par',
+      expiresDate: 'Expire le',
+      updatePayment: 'Mettre à jour',
+      billingHistory: 'Historique de facturation',
+      invoiceDate: 'Date',
+      invoiceAmount: 'Montant',
+      invoiceStatus: 'Statut',
+      downloadInvoice: 'Télécharger',
+      paid: 'Payé',
+      pending: 'En attente',
+      emailNotifications: 'Notifications par email',
+      pushNotifications: 'Notifications push',
+      marketingEmails: 'Emails marketing',
+      weeklyReports: 'Rapports hebdomadaires',
+      notificationPreferences: 'Préférences de notification',
+      newMessages: 'Nouveaux messages',
+      scheduledPosts: 'Publications programmées',
+      analyticsReports: 'Rapports analytiques',
+      platformAlerts: 'Alertes de connexion aux plateformes',
+      selectLanguage: 'Sélectionner la langue',
+      french: 'Français',
+      english: 'English',
+      languageDescription: 'Choisissez votre langue préférée pour l\'interface',
+      changePassword: 'Changer le mot de passe',
+      currentPassword: 'Mot de passe actuel',
+      newPassword: 'Nouveau mot de passe',
+      confirmPassword: 'Confirmer le mot de passe',
+      updatePassword: 'Mettre à jour le mot de passe',
+      twoFactorAuth: 'Authentification à deux facteurs',
+      enable2FA: 'Activer 2FA',
+      disable2FA: 'Désactiver 2FA',
+      twoFactorDescription: 'Ajoutez une couche de sécurité supplémentaire à votre compte',
+      activeSessions: 'Sessions actives',
+      currentSession: 'Session actuelle',
+      lastActive: 'Dernière activité',
+      revokeSession: 'Révoquer',
+      securityLog: 'Journal de sécurité',
+      dangerZone: 'Zone de danger',
+      deleteAccount: 'Supprimer le compte',
+      deleteAccountDescription: 'Supprimer définitivement votre compte et toutes vos données',
+      deleteAccountConfirm: 'Supprimer mon compte',
+      exportData: 'Exporter les données',
+      exportDataDescription: 'Télécharger toutes vos données de compte',
+      deactivateAccount: 'Désactiver le compte',
+      deactivateAccountDescription: 'Désactiver temporairement votre compte',
+      settingsSaved: 'Paramètres enregistrés',
+      settingsSavedDescription: 'Vos paramètres ont été mis à jour avec succès',
+      passwordUpdated: 'Mot de passe mis à jour',
+      passwordUpdatedDescription: 'Votre mot de passe a été modifié avec succès',
+      january: 'Janvier',
+      february: 'Février',
+      march: 'Mars',
     },
     common: {
       save: 'Enregistrer',

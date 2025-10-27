@@ -8,6 +8,7 @@ import { Link } from "wouter";
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const AnimatedNumber = ({ value }: { value: string }) => {
   const count = useMotionValue(0);
@@ -48,30 +49,32 @@ const platformColors: Record<string, string> = {
 };
 
 const Dashboard = () => {
+  const { t } = useLanguage();
+  
   const stats = [
     {
-      label: "Scheduled Posts",
+      label: t.dashboard.scheduledPosts,
       value: "24",
       change: "+3 from last week",
       icon: Calendar,
       trend: "up",
     },
     {
-      label: "Pending Messages",
+      label: t.dashboard.pendingMessages,
       value: "12",
       change: "Across all platforms",
       icon: MessageSquare,
       trend: "neutral",
     },
     {
-      label: "Total Followers",
+      label: t.dashboard.totalFollowers,
       value: "45.2K",
       change: "+12% this month",
       icon: Users,
       trend: "up",
     },
     {
-      label: "Engagement Rate",
+      label: t.dashboard.engagementRate,
       value: "8.3%",
       change: "+2.1% from last week",
       icon: TrendingUp,
@@ -105,8 +108,8 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl font-bold gradient-text" data-testid="text-dashboard-title">Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back! Here's your overview.</p>
+          <h1 className="text-3xl font-bold gradient-text" data-testid="text-dashboard-title">{t.dashboard.title}</h1>
+          <p className="text-muted-foreground">{t.dashboard.welcome}</p>
         </motion.div>
 
         {/* Stats Cards */}
@@ -161,7 +164,7 @@ const Dashboard = () => {
           >
             <Card className="glass border-2 border-border/50 hover:border-primary/30 transition-all">
               <CardHeader>
-                <CardTitle>Weekly Engagement</CardTitle>
+                <CardTitle>{t.dashboard.weeklyEngagement}</CardTitle>
                 <CardDescription>Your engagement trend over the past week</CardDescription>
               </CardHeader>
               <CardContent>
@@ -214,7 +217,7 @@ const Dashboard = () => {
           >
             <Card className="glass border-2 border-border/50 hover:border-primary/30 transition-all">
               <CardHeader>
-                <CardTitle>Recent Activity</CardTitle>
+                <CardTitle>{t.dashboard.recentActivity}</CardTitle>
                 <CardDescription>Latest updates from your accounts</CardDescription>
               </CardHeader>
               <CardContent>
@@ -266,28 +269,28 @@ const Dashboard = () => {
           {[
             {
               icon: Calendar,
-              title: "Compose Post",
+              title: t.dashboard.composePost,
               description: "Create and schedule posts across all platforms",
               link: "/dashboard/composer",
-              buttonText: "Create Post",
+              buttonText: t.dashboard.composePost,
               buttonVariant: "default",
               testId: "button-create-post"
             },
             {
               icon: Inbox,
-              title: "Manage Inbox",
+              title: t.dashboard.manageInbox,
               description: "View and respond to all messages in one place",
               link: "/dashboard/inbox",
-              buttonText: "View Inbox",
+              buttonText: t.dashboard.manageInbox,
               buttonVariant: "outline",
               testId: "button-view-inbox"
             },
             {
               icon: BarChart3,
-              title: "View Analytics",
+              title: t.dashboard.viewAnalytics,
               description: "Track performance and insights",
               link: "/dashboard/analytics",
-              buttonText: "View Analytics",
+              buttonText: t.dashboard.viewAnalytics,
               buttonVariant: "outline",
               testId: "button-view-analytics"
             }
