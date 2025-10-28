@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useLanguage } from "@/components/LanguageProvider";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, XCircle, Clock, Users } from "lucide-react";
-import { SiFacebook, SiInstagram, SiX, SiLinkedin, SiTiktok, SiYoutube } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiX, SiLinkedin, SiTiktok, SiYoutube, SiSnapchat, SiThreads, SiGooglemybusiness } from "react-icons/si";
 
 interface Platform {
   id: string;
@@ -17,8 +17,8 @@ interface Platform {
   brandColor: string;
   accountsConnected?: number;
   lastSync?: string;
-  descriptionKey: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'tiktok' | 'youtube';
-  featuresKey: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'tiktok' | 'youtube';
+  descriptionKey: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'tiktok' | 'youtube' | 'snapchat' | 'threads' | 'gmb';
+  featuresKey: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'tiktok' | 'youtube' | 'snapchat' | 'threads' | 'gmb';
 }
 
 const Integrations = () => {
@@ -82,6 +82,33 @@ const Integrations = () => {
       brandColor: '#FF0000',
       descriptionKey: 'youtube',
       featuresKey: 'youtube',
+    },
+    {
+      id: 'snapchat',
+      name: 'Snapchat',
+      connected: false,
+      icon: <SiSnapchat className="w-10 h-10" />,
+      brandColor: '#FFFC00',
+      descriptionKey: 'snapchat',
+      featuresKey: 'snapchat',
+    },
+    {
+      id: 'threads',
+      name: 'Threads',
+      connected: false,
+      icon: <SiThreads className="w-10 h-10" />,
+      brandColor: '#000000',
+      descriptionKey: 'threads',
+      featuresKey: 'threads',
+    },
+    {
+      id: 'gmb',
+      name: 'Google My Business',
+      connected: false,
+      icon: <SiGooglemybusiness className="w-10 h-10" />,
+      brandColor: '#4285F4',
+      descriptionKey: 'gmb',
+      featuresKey: 'gmb',
     },
   ]);
 
