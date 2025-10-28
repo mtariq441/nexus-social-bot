@@ -124,6 +124,9 @@ export interface Translations {
       linkedin: string;
       tiktok: string;
       youtube: string;
+      snapchat: string;
+      threads: string;
+      gmb: string;
     };
     platformFeatures: {
       facebook: string[];
@@ -132,6 +135,9 @@ export interface Translations {
       linkedin: string[];
       tiktok: string[];
       youtube: string[];
+      snapchat: string[];
+      threads: string[];
+      gmb: string[];
     };
   };
   // Team
@@ -477,6 +483,9 @@ export const translations: Record<Language, Translations> = {
         linkedin: 'Publish professional content on LinkedIn',
         tiktok: 'Create and share viral TikTok videos',
         youtube: 'Upload and manage YouTube videos',
+        snapchat: 'Share stories and engage with Snapchat audience',
+        threads: 'Post updates and engage on Threads by Instagram',
+        gmb: 'Manage your Google My Business listings',
       },
       platformFeatures: {
         facebook: [
@@ -514,6 +523,24 @@ export const translations: Record<Language, Translations> = {
           'Manage video metadata',
           'Respond to comments',
           'Track channel analytics',
+        ],
+        snapchat: [
+          'Schedule Snapchat stories',
+          'Manage public stories',
+          'Track story engagement',
+          'Monitor audience insights',
+        ],
+        threads: [
+          'Schedule Threads posts',
+          'Engage with community',
+          'Track post performance',
+          'Monitor trending topics',
+        ],
+        gmb: [
+          'Update business information',
+          'Respond to reviews',
+          'Post business updates',
+          'Track location insights',
         ],
       },
     },
