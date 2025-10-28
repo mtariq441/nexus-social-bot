@@ -57,8 +57,19 @@ workspace/
 - Post Composer for creating and scheduling social media content
 - Unified Inbox for managing messages across all platforms
 - Analytics dashboard with engagement metrics and performance tracking
-- Integrations page for connecting social media accounts
+- Integrations page for connecting social media accounts (9 platforms supported)
 - Settings panel for profile, notifications, billing, and team management
+
+**Supported Social Media Platforms** (9 total):
+1. Facebook - Pages and groups management
+2. Instagram - Photos, stories, and direct messages
+3. Twitter/X - Tweets, threads, and engagement
+4. LinkedIn - Professional content publishing
+5. TikTok - Video content scheduling
+6. YouTube - Video upload and management
+7. Snapchat - Stories and audience engagement
+8. Threads - Community engagement on Instagram's text platform
+9. Google My Business - Business listings and customer reviews
 
 ### External Dependencies
 
@@ -109,6 +120,14 @@ This application is configured for static hosting on Replit's autoscale deployme
 - Deployment target: autoscale (suitable for static frontend apps)
 
 ## Development History
+
+**October 28, 2025:**
+- Expanded social media platform support from 6 to 9 platforms
+- Added Snapchat integration with SiSnapchat icon from react-icons/si
+- Added Threads integration with SiThreads icon from react-icons/si
+- Added Google My Business integration with MdBusiness icon from react-icons/md
+- Added complete English and French translations for all new platforms
+- Updated TypeScript interfaces to support all 9 platform types
 
 **October 27, 2025:**
 - Built as a pure custom React + TypeScript application on Replit
