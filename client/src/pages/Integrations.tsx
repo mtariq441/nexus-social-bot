@@ -7,7 +7,8 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useLanguage } from "@/components/LanguageProvider";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, XCircle, Clock, Users } from "lucide-react";
-import { SiFacebook, SiInstagram, SiX, SiLinkedin, SiTiktok, SiYoutube, SiSnapchat, SiThreads, SiGooglemybusiness } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiX, SiLinkedin, SiTiktok, SiYoutube, SiSnapchat, SiThreads } from "react-icons/si";
+import { MdBusiness } from "react-icons/md";
 
 interface Platform {
   id: string;
@@ -105,7 +106,7 @@ const Integrations = () => {
       id: 'gmb',
       name: 'Google My Business',
       connected: false,
-      icon: <SiGooglemybusiness className="w-10 h-10" />,
+      icon: <MdBusiness className="w-10 h-10" />,
       brandColor: '#4285F4',
       descriptionKey: 'gmb',
       featuresKey: 'gmb',
