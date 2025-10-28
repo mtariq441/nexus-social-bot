@@ -904,6 +904,9 @@ export const translations: Record<Language, Translations> = {
         linkedin: 'Publiez du contenu professionnel sur LinkedIn',
         tiktok: 'Créez et partagez des vidéos TikTok virales',
         youtube: 'Uploadez et gérez vos vidéos YouTube',
+        snapchat: 'Partagez des stories et engagez votre audience Snapchat',
+        threads: 'Publiez des mises à jour et engagez sur Threads by Instagram',
+        gmb: 'Gérez vos fiches Google My Business',
       },
       platformFeatures: {
         facebook: [
@@ -941,6 +944,24 @@ export const translations: Record<Language, Translations> = {
           'Gérer les métadonnées vidéo',
           'Répondre aux commentaires',
           'Suivre les analytiques de chaîne',
+        ],
+        snapchat: [
+          'Programmer les stories Snapchat',
+          'Gérer les stories publiques',
+          'Suivre l\'engagement des stories',
+          'Surveiller les insights d\'audience',
+        ],
+        threads: [
+          'Programmer les publications Threads',
+          'Interagir avec la communauté',
+          'Suivre la performance des posts',
+          'Surveiller les sujets tendances',
+        ],
+        gmb: [
+          'Mettre à jour les informations commerciales',
+          'Répondre aux avis clients',
+          'Publier des actualités',
+          'Suivre les insights de localisation',
         ],
       },
     },
