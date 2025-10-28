@@ -1,8 +1,8 @@
-# SocialSync - Frontend React Application
+# Postify - Frontend React Application
 
 ## Overview
 
-SocialSync is a frontend-only social media management platform UI built with React, TypeScript, and Tailwind CSS. The application provides a modern, responsive interface for social media management features including scheduling posts, managing a unified inbox, tracking analytics, and viewing integrations.
+Postify is a frontend-only social media management platform UI built with React, TypeScript, and Tailwind CSS. The application provides a modern, responsive interface for social media management features including scheduling posts, managing a unified inbox, tracking analytics, and viewing integrations.
 
 **Current Status:** Frontend-only React + Tailwind CSS application (October 24, 2025).
 **Note:** This is a UI-only application with no backend. Authentication is mock-only and non-persistent.

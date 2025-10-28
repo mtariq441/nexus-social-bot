@@ -49,7 +49,7 @@ export const DashboardSidebar = () => {
                 <div className="w-6 h-6 bg-gradient-primary rounded-md flex items-center justify-center">
                   <MessageSquare className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-bold">SocialSync</span>
+                <span className="font-bold">Postify</span>
               </>
             )}
             {collapsed && (

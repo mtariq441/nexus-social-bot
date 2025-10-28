@@ -26,7 +26,7 @@ export const Navbar = () => {
             >
               <MessageSquare className="w-5 h-5 text-white" />
             </motion.div>
-            <span className="font-bold text-xl gradient-text">SocialSync</span>
+            <span className="font-bold text-xl gradient-text">Postify</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

@@ -43,7 +43,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
             >
               <MessageSquare className="w-8 h-8 text-primary" />
             </motion.div>
-            <span className="font-bold text-4xl">SocialSync</span>
+            <span className="font-bold text-4xl">Postify</span>
           </motion.div>
           
           <motion.h2

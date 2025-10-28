@@ -720,13 +720,13 @@ export const translations: Record<Language, Translations> = {
       },
       testimonials: {
         title: 'Loved by Teams Worldwide',
-        subtitle: 'Join thousands of professionals who trust SocialSync',
+        subtitle: 'Join thousands of professionals who trust Postify',
         items: {
           sarah: {
             name: 'Sarah Johnson',
             role: 'Social Media Manager',
             company: 'TechCorp',
-            content: 'SocialSync has transformed how we manage our social media. The AI features save us hours every week!',
+            content: 'Postify has transformed how we manage our social media. The AI features save us hours every week!',
           },
           michael: {
             name: 'Michael Chen',
@@ -760,7 +760,7 @@ export const translations: Record<Language, Translations> = {
         privacy: 'Privacy Policy',
         terms: 'Terms of Service',
         contact: 'Contact',
-        copyright: '© 2025 SocialSync. All rights reserved.',
+        copyright: '© 2025 Postify. All rights reserved.',
       },
     },
   },
@@ -1120,13 +1120,13 @@ export const translations: Record<Language, Translations> = {
       },
       testimonials: {
         title: 'Apprécié par les équipes du monde entier',
-        subtitle: 'Rejoignez des milliers de professionnels qui font confiance à SocialSync',
+        subtitle: 'Rejoignez des milliers de professionnels qui font confiance à Postify',
         items: {
           sarah: {
             name: 'Sarah Johnson',
             role: 'Responsable des réseaux sociaux',
             company: 'TechCorp',
-            content: 'SocialSync a transformé notre gestion des réseaux sociaux. Les fonctionnalités IA nous font gagner des heures chaque semaine !',
+            content: 'Postify a transformé notre gestion des réseaux sociaux. Les fonctionnalités IA nous font gagner des heures chaque semaine !',
           },
           michael: {
             name: 'Michael Chen',
@@ -1160,7 +1160,7 @@ export const translations: Record<Language, Translations> = {
         privacy: 'Politique de confidentialité',
         terms: 'Conditions d\'utilisation',
         contact: 'Contact',
-        copyright: '© 2025 SocialSync. Tous droits réservés.',
+        copyright: '© 2025 Postify. Tous droits réservés.',
       },
     },
   },

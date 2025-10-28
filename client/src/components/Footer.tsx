@@ -14,7 +14,7 @@ export const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-glow-sm">
                 <MessageSquare className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-xl">SocialSync</span>
+              <span className="font-bold text-xl">Postify</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               {t.landing.footer.tagline}
