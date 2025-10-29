@@ -48,7 +48,7 @@ const Auth = () => {
 
   const handleSocialLogin = (provider: string) => {
     toast({
-      title: "Social Login",
+      title: t.auth.socialLoginTitle,
       description: `${provider} ${t.auth.socialLoginSoon}`,
     });
   };
