@@ -145,6 +145,7 @@ export interface Translations {
     title: string;
     members: string;
     inviteMember: string;
+    inviteMemberDescription: string;
     role: string;
     admin: string;
     editor: string;
@@ -152,6 +153,112 @@ export interface Translations {
     viewer: string;
     lastActive: string;
     remove: string;
+    sendInvite: string;
+  };
+  // Auth
+  auth: {
+    welcomeBack: string;
+    createAccount: string;
+    loginDescription: string;
+    signupDescription: string;
+    fullName: string;
+    fullNamePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    password: string;
+    passwordPlaceholder: string;
+    forgotPassword: string;
+    passwordRequirement: string;
+    signIn: string;
+    createAccountButton: string;
+    continueWith: string;
+    noAccount: string;
+    haveAccount: string;
+    termsAgreement: string;
+    termsOfService: string;
+    privacyPolicy: string;
+    and: string;
+    socialLoginSoon: string;
+    errorFillFields: string;
+    successLogin: string;
+    successSignup: string;
+  };
+  // NotFound
+  notFound: {
+    title: string;
+    message: string;
+    returnHome: string;
+  };
+  // Admin
+  admin: {
+    title: string;
+    subtitle: string;
+    totalUsers: string;
+    monthlyRevenue: string;
+    activeSubscriptions: string;
+    growthRate: string;
+    fromLastMonth: string;
+    revenueTrend: string;
+    revenueTrendDescription: string;
+    userGrowth: string;
+    userGrowthDescription: string;
+    userManagement: string;
+    userManagementDescription: string;
+    searchUsers: string;
+    user: string;
+    plan: string;
+    status: string;
+    joined: string;
+    revenue: string;
+    active: string;
+    trial: string;
+    recentActivity: string;
+    recentActivityDescription: string;
+    activityUpgraded: string;
+    activityCreatedPosts: string;
+    activityConnected: string;
+    activityStartedTrial: string;
+    activityExported: string;
+    hoursAgo: string;
+    dayAgo: string;
+  };
+  // Subscription
+  subscription: {
+    title: string;
+    subtitle: string;
+    monthly: string;
+    annual: string;
+    savePercent: string;
+    mostPopular: string;
+    currentPlan: string;
+    upgradeTo: string;
+    month: string;
+    year: string;
+    billedAnnually: string;
+    faqTitle: string;
+    faqChangePlanTitle: string;
+    faqChangePlanAnswer: string;
+    faqPaymentTitle: string;
+    faqPaymentAnswer: string;
+    faqCancelTitle: string;
+    faqCancelAnswer: string;
+    planUpdated: string;
+    planUpdatedDescription: string;
+    starter: {
+      name: string;
+      description: string;
+      features: string[];
+    };
+    professional: {
+      name: string;
+      description: string;
+      features: string[];
+    };
+    enterprise: {
+      name: string;
+      description: string;
+      features: string[];
+    };
   };
   // Settings
   settings: {
@@ -548,6 +655,7 @@ export const translations: Record<Language, Translations> = {
       title: 'Team',
       members: 'Team Members',
       inviteMember: 'Invite Member',
+      inviteMemberDescription: 'Invite a new member to join your team. They will receive an invitation email.',
       role: 'Role',
       admin: 'Admin',
       editor: 'Editor',
@@ -555,6 +663,135 @@ export const translations: Record<Language, Translations> = {
       viewer: 'Viewer',
       lastActive: 'Last Active',
       remove: 'Remove',
+      sendInvite: 'Send Invitation',
+    },
+    auth: {
+      welcomeBack: 'Welcome back',
+      createAccount: 'Create an account',
+      loginDescription: 'Enter your credentials to access your account',
+      signupDescription: 'Start your 14-day free trial. No credit card required.',
+      fullName: 'Full Name',
+      fullNamePlaceholder: 'John Doe',
+      email: 'Email',
+      emailPlaceholder: 'name@example.com',
+      password: 'Password',
+      passwordPlaceholder: '••••••••',
+      forgotPassword: 'Forgot password?',
+      passwordRequirement: 'Must be at least 8 characters',
+      signIn: 'Sign In',
+      createAccountButton: 'Create Account',
+      continueWith: 'Or continue with',
+      noAccount: "Don't have an account? Sign up",
+      haveAccount: 'Already have an account? Sign in',
+      termsAgreement: 'By creating an account, you agree to our',
+      termsOfService: 'Terms of Service',
+      privacyPolicy: 'Privacy Policy',
+      and: 'and',
+      socialLoginSoon: 'login coming soon',
+      errorFillFields: 'Please fill in all fields',
+      successLogin: 'Logged in successfully',
+      successSignup: 'Account created successfully',
+    },
+    notFound: {
+      title: '404',
+      message: 'Oops! Page not found',
+      returnHome: 'Return to Home',
+    },
+    admin: {
+      title: 'Admin Dashboard',
+      subtitle: 'Monitor platform performance and manage users',
+      totalUsers: 'Total Users',
+      monthlyRevenue: 'Monthly Revenue',
+      activeSubscriptions: 'Active Subscriptions',
+      growthRate: 'Growth Rate',
+      fromLastMonth: 'from last month',
+      revenueTrend: 'Revenue Trend',
+      revenueTrendDescription: 'Monthly revenue over the last 6 months',
+      userGrowth: 'User Growth',
+      userGrowthDescription: 'New users over the last 6 months',
+      userManagement: 'User Management',
+      userManagementDescription: 'Manage and monitor all platform users',
+      searchUsers: 'Search users...',
+      user: 'User',
+      plan: 'Plan',
+      status: 'Status',
+      joined: 'Joined',
+      revenue: 'Revenue',
+      active: 'active',
+      trial: 'trial',
+      recentActivity: 'Recent Activity',
+      recentActivityDescription: 'Latest user actions on the platform',
+      activityUpgraded: 'Upgraded to Professional plan',
+      activityCreatedPosts: 'Created 15 scheduled posts',
+      activityConnected: 'Connected Instagram account',
+      activityStartedTrial: 'Started free trial',
+      activityExported: 'Exported analytics report',
+      hoursAgo: 'hours ago',
+      dayAgo: 'day ago',
+    },
+    subscription: {
+      title: 'Subscription Plans',
+      subtitle: 'Choose the perfect plan for your needs',
+      monthly: 'Monthly',
+      annual: 'Annual',
+      savePercent: 'Save 20%',
+      mostPopular: 'Most Popular',
+      currentPlan: 'Current Plan',
+      upgradeTo: 'Upgrade to',
+      month: 'month',
+      year: 'year',
+      billedAnnually: 'Billed',
+      faqTitle: 'Frequently Asked Questions',
+      faqChangePlanTitle: 'Can I change my plan anytime?',
+      faqChangePlanAnswer: 'Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.',
+      faqPaymentTitle: 'What payment methods do you accept?',
+      faqPaymentAnswer: 'We accept all major credit cards, PayPal, and bank transfers for enterprise plans.',
+      faqCancelTitle: 'What is your cancellation policy?',
+      faqCancelAnswer: 'You can cancel your subscription at any time. You will continue to have access until the end of your billing period.',
+      planUpdated: 'Plan Updated',
+      planUpdatedDescription: 'Successfully upgraded to',
+      starter: {
+        name: 'Starter',
+        description: 'Perfect for individuals and small teams',
+        features: [
+          '3 social accounts',
+          '30 scheduled posts/month',
+          'Basic analytics',
+          'Email support',
+          'AI caption suggestions',
+          '1 team member',
+        ],
+      },
+      professional: {
+        name: 'Professional',
+        description: 'For growing businesses',
+        features: [
+          '10 social accounts',
+          'Unlimited scheduled posts',
+          'Advanced analytics',
+          'Priority support',
+          'AI automation',
+          'Team collaboration (5 users)',
+          'Custom reports',
+          'Hashtag recommendations',
+        ],
+      },
+      enterprise: {
+        name: 'Enterprise',
+        description: 'For large organizations',
+        features: [
+          'Unlimited social accounts',
+          'Unlimited scheduled posts',
+          'Enterprise analytics',
+          '24/7 dedicated support',
+          'Full AI automation suite',
+          'Unlimited team members',
+          'White-label options',
+          'API access',
+          'Custom integrations',
+          'SLA guarantee',
+        ],
+      },
     },
     settings: {
       title: 'Settings',
@@ -969,6 +1206,7 @@ export const translations: Record<Language, Translations> = {
       title: 'Équipe',
       members: 'Membres de l\'équipe',
       inviteMember: 'Inviter un membre',
+      inviteMemberDescription: 'Invitez un nouveau membre à rejoindre votre équipe. Il recevra un email d\'invitation.',
       role: 'Rôle',
       admin: 'Administrateur',
       editor: 'Éditeur',
@@ -976,6 +1214,135 @@ export const translations: Record<Language, Translations> = {
       viewer: 'Lecteur',
       lastActive: 'Dernière activité',
       remove: 'Retirer',
+      sendInvite: 'Envoyer l\'invitation',
+    },
+    auth: {
+      welcomeBack: 'Bienvenue',
+      createAccount: 'Créer un compte',
+      loginDescription: 'Entrez vos identifiants pour accéder à votre compte',
+      signupDescription: 'Commencez votre essai gratuit de 14 jours. Aucune carte bancaire requise.',
+      fullName: 'Nom complet',
+      fullNamePlaceholder: 'Jean Dupont',
+      email: 'Email',
+      emailPlaceholder: 'nom@exemple.com',
+      password: 'Mot de passe',
+      passwordPlaceholder: '••••••••',
+      forgotPassword: 'Mot de passe oublié ?',
+      passwordRequirement: 'Doit contenir au moins 8 caractères',
+      signIn: 'Se connecter',
+      createAccountButton: 'Créer un compte',
+      continueWith: 'Ou continuer avec',
+      noAccount: 'Pas encore de compte ? Inscrivez-vous',
+      haveAccount: 'Vous avez déjà un compte ? Connectez-vous',
+      termsAgreement: 'En créant un compte, vous acceptez nos',
+      termsOfService: 'Conditions d\'utilisation',
+      privacyPolicy: 'Politique de confidentialité',
+      and: 'et',
+      socialLoginSoon: 'connexion bientôt disponible',
+      errorFillFields: 'Veuillez remplir tous les champs',
+      successLogin: 'Connexion réussie',
+      successSignup: 'Compte créé avec succès',
+    },
+    notFound: {
+      title: '404',
+      message: 'Oups ! Page introuvable',
+      returnHome: 'Retour à l\'accueil',
+    },
+    admin: {
+      title: 'Tableau de bord admin',
+      subtitle: 'Surveillez les performances de la plateforme et gérez les utilisateurs',
+      totalUsers: 'Utilisateurs totaux',
+      monthlyRevenue: 'Revenus mensuels',
+      activeSubscriptions: 'Abonnements actifs',
+      growthRate: 'Taux de croissance',
+      fromLastMonth: 'depuis le mois dernier',
+      revenueTrend: 'Tendance des revenus',
+      revenueTrendDescription: 'Revenus mensuels au cours des 6 derniers mois',
+      userGrowth: 'Croissance des utilisateurs',
+      userGrowthDescription: 'Nouveaux utilisateurs au cours des 6 derniers mois',
+      userManagement: 'Gestion des utilisateurs',
+      userManagementDescription: 'Gérez et surveillez tous les utilisateurs de la plateforme',
+      searchUsers: 'Rechercher des utilisateurs...',
+      user: 'Utilisateur',
+      plan: 'Forfait',
+      status: 'Statut',
+      joined: 'Inscrit le',
+      revenue: 'Revenus',
+      active: 'actif',
+      trial: 'essai',
+      recentActivity: 'Activité récente',
+      recentActivityDescription: 'Dernières actions des utilisateurs sur la plateforme',
+      activityUpgraded: 'Passé au forfait Professionnel',
+      activityCreatedPosts: 'Créé 15 publications programmées',
+      activityConnected: 'Compte Instagram connecté',
+      activityStartedTrial: 'Essai gratuit commencé',
+      activityExported: 'Rapport analytique exporté',
+      hoursAgo: 'heures',
+      dayAgo: 'jour',
+    },
+    subscription: {
+      title: 'Plans d\'abonnement',
+      subtitle: 'Choisissez le forfait parfait pour vos besoins',
+      monthly: 'Mensuel',
+      annual: 'Annuel',
+      savePercent: 'Économisez 20%',
+      mostPopular: 'Le plus populaire',
+      currentPlan: 'Forfait actuel',
+      upgradeTo: 'Passer à',
+      month: 'mois',
+      year: 'an',
+      billedAnnually: 'Facturé',
+      faqTitle: 'Questions fréquemment posées',
+      faqChangePlanTitle: 'Puis-je changer mon forfait à tout moment ?',
+      faqChangePlanAnswer: 'Oui, vous pouvez mettre à niveau ou rétrograder votre forfait à tout moment. Les modifications seront reflétées lors de votre prochain cycle de facturation.',
+      faqPaymentTitle: 'Quels moyens de paiement acceptez-vous ?',
+      faqPaymentAnswer: 'Nous acceptons toutes les cartes bancaires principales, PayPal et les virements bancaires pour les forfaits entreprise.',
+      faqCancelTitle: 'Quelle est votre politique d\'annulation ?',
+      faqCancelAnswer: 'Vous pouvez annuler votre abonnement à tout moment. Vous continuerez à avoir accès jusqu\'à la fin de votre période de facturation.',
+      planUpdated: 'Forfait mis à jour',
+      planUpdatedDescription: 'Mise à niveau réussie vers',
+      starter: {
+        name: 'Démarrage',
+        description: 'Parfait pour les particuliers et petites équipes',
+        features: [
+          '3 comptes sociaux',
+          '30 publications programmées/mois',
+          'Analytiques de base',
+          'Support par email',
+          'Suggestions de légendes IA',
+          '1 membre d\'équipe',
+        ],
+      },
+      professional: {
+        name: 'Professionnel',
+        description: 'Pour les entreprises en croissance',
+        features: [
+          '10 comptes sociaux',
+          'Publications programmées illimitées',
+          'Analytiques avancées',
+          'Support prioritaire',
+          'Automatisation IA',
+          'Collaboration d\'équipe (5 utilisateurs)',
+          'Rapports personnalisés',
+          'Recommandations de hashtags',
+        ],
+      },
+      enterprise: {
+        name: 'Entreprise',
+        description: 'Pour les grandes organisations',
+        features: [
+          'Comptes sociaux illimités',
+          'Publications programmées illimitées',
+          'Analytiques d\'entreprise',
+          'Support dédié 24/7',
+          'Suite d\'automatisation IA complète',
+          'Membres d\'équipe illimités',
+          'Options marque blanche',
+          'Accès API',
+          'Intégrations personnalisées',
+          'Garantie SLA',
+        ],
+      },
     },
     settings: {
       title: 'Paramètres',
