@@ -9,8 +9,10 @@ import { AuthLayout } from "@/components/AuthLayout";
 import { Loader2, Chrome, Github } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const Auth = () => {
+  const { t } = useLanguage();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,8 +26,8 @@ const Auth = () => {
     
     if (!email || !password || (!isLogin && !name)) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
+        title: t.common.error,
+        description: t.auth.errorFillFields,
         variant: "destructive",
       });
       return;
@@ -35,8 +37,8 @@ const Auth = () => {
 
     setTimeout(() => {
       toast({
-        title: "Success",
-        description: isLogin ? "Logged in successfully" : "Account created successfully",
+        title: t.common.success,
+        description: isLogin ? t.auth.successLogin : t.auth.successSignup,
       });
       
       setLocation("/dashboard");
@@ -47,7 +49,7 @@ const Auth = () => {
   const handleSocialLogin = (provider: string) => {
     toast({
       title: "Social Login",
-      description: `${provider} login coming soon`,
+      description: `${provider} ${t.auth.socialLoginSoon}`,
     });
   };
 
@@ -61,12 +63,12 @@ const Auth = () => {
         <Card className="glass-strong border-2 border-border/50 hover:border-primary/20 transition-all shadow-glow-sm">
           <CardHeader className="space-y-1">
             <CardTitle className="text-3xl font-bold gradient-text">
-              {isLogin ? "Welcome back" : "Create an account"}
+              {isLogin ? t.auth.welcomeBack : t.auth.createAccount}
             </CardTitle>
             <CardDescription className="text-base">
               {isLogin
-                ? "Enter your credentials to access your account"
-                : "Start your 14-day free trial. No credit card required."}
+                ? t.auth.loginDescription
+                : t.auth.signupDescription}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -111,7 +113,7 @@ const Auth = () => {
                 <Separator />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="glass px-3 py-1 text-muted-foreground rounded-full">Or continue with</span>
+                <span className="glass px-3 py-1 text-muted-foreground rounded-full">{t.auth.continueWith}</span>
               </div>
             </div>
 
@@ -124,11 +126,11 @@ const Auth = () => {
                   exit={{ opacity: 0, height: 0 }}
                   className="space-y-2"
                 >
-                  <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
+                  <Label htmlFor="name" className="text-sm font-medium">{t.auth.fullName}</Label>
                   <Input
                     id="name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder={t.auth.fullNamePlaceholder}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required={!isLogin}
@@ -139,11 +141,11 @@ const Auth = () => {
               )}
               
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                <Label htmlFor="email" className="text-sm font-medium">{t.auth.email}</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="name@example.com"
+                  placeholder={t.auth.emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -154,17 +156,17 @@ const Auth = () => {
               
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                  <Label htmlFor="password" className="text-sm font-medium">{t.auth.password}</Label>
                   {isLogin && (
                     <a href="#" className="text-sm text-primary hover:underline hover:text-primary-glow transition-colors">
-                      Forgot password?
+                      {t.auth.forgotPassword}
                     </a>
                   )}
                 </div>
                 <Input
                   id="password"
                   type="password"
-                  placeholder="••••••••"
+                  placeholder={t.auth.passwordPlaceholder}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -173,7 +175,7 @@ const Auth = () => {
                 />
                 {!isLogin && (
                   <p className="text-xs text-muted-foreground">
-                    Must be at least 8 characters
+                    {t.auth.passwordRequirement}
                   </p>
                 )}
               </div>
@@ -189,7 +191,7 @@ const Auth = () => {
                   data-testid="button-submit"
                 >
                   {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  {isLogin ? "Sign In" : "Create Account"}
+                  {isLogin ? t.auth.signIn : t.auth.createAccountButton}
                 </Button>
               </motion.div>
             </form>
@@ -206,8 +208,8 @@ const Auth = () => {
                 data-testid="button-toggle-auth"
               >
                 {isLogin
-                  ? "Don't have an account? Sign up"
-                  : "Already have an account? Sign in"}
+                  ? t.auth.noAccount
+                  : t.auth.haveAccount}
               </button>
             </div>
 
@@ -217,10 +219,10 @@ const Auth = () => {
                 animate={{ opacity: 1 }}
                 className="mt-4 text-xs text-center text-muted-foreground"
               >
-                By creating an account, you agree to our{" "}
-                <a href="#" className="text-primary hover:underline">Terms of Service</a>
-                {" "}and{" "}
-                <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+                {t.auth.termsAgreement}{" "}
+                <a href="#" className="text-primary hover:underline">{t.auth.termsOfService}</a>
+                {" "}{t.auth.and}{" "}
+                <a href="#" className="text-primary hover:underline">{t.auth.privacyPolicy}</a>
               </motion.p>
             )}
           </CardContent>

@@ -1,7 +1,9 @@
 import { useLocation } from "wouter";
 import { useEffect } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const NotFound = () => {
+  const { t } = useLanguage();
   const [location] = useLocation();
 
   useEffect(() => {
@@ -9,12 +11,12 @@ const NotFound = () => {
   }, [location]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-900">
       <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
+        <h1 className="mb-4 text-4xl font-bold">{t.notFound.title}</h1>
+        <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">{t.notFound.message}</p>
         <a href="/" className="text-blue-500 underline hover:text-blue-700" data-testid="link-home">
-          Return to Home
+          {t.notFound.returnHome}
         </a>
       </div>
     </div>

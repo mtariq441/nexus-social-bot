@@ -25,13 +25,16 @@ import {
 } from "recharts";
 import { Users, DollarSign, Activity, TrendingUp, Search, MoreVertical } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const Admin = () => {
+  const { t } = useLanguage();
+  
   const stats = [
-    { label: "Total Users", value: "12,345", change: "+12.5%", icon: Users, color: "text-blue-500" },
-    { label: "Monthly Revenue", value: "$45,678", change: "+8.2%", icon: DollarSign, color: "text-green-500" },
-    { label: "Active Subscriptions", value: "8,234", change: "+15.3%", icon: Activity, color: "text-purple-500" },
-    { label: "Growth Rate", value: "23.4%", change: "+5.1%", icon: TrendingUp, color: "text-orange-500" },
+    { label: t.admin.totalUsers, value: "12,345", change: "+12.5%", icon: Users, color: "text-blue-500" },
+    { label: t.admin.monthlyRevenue, value: "$45,678", change: "+8.2%", icon: DollarSign, color: "text-green-500" },
+    { label: t.admin.activeSubscriptions, value: "8,234", change: "+15.3%", icon: Activity, color: "text-purple-500" },
+    { label: t.admin.growthRate, value: "23.4%", change: "+5.1%", icon: TrendingUp, color: "text-orange-500" },
   ];
 
   const revenueData = [
@@ -92,19 +95,19 @@ const Admin = () => {
   ];
 
   const activities = [
-    { user: "Sarah Johnson", action: "Upgraded to Professional plan", time: "2 hours ago" },
-    { user: "Michael Chen", action: "Created 15 scheduled posts", time: "3 hours ago" },
-    { user: "Emily Rodriguez", action: "Connected Instagram account", time: "5 hours ago" },
-    { user: "David Kim", action: "Started free trial", time: "1 day ago" },
-    { user: "Lisa Wang", action: "Exported analytics report", time: "1 day ago" },
+    { user: "Sarah Johnson", action: t.admin.activityUpgraded, time: `2 ${t.admin.hoursAgo}` },
+    { user: "Michael Chen", action: t.admin.activityCreatedPosts, time: `3 ${t.admin.hoursAgo}` },
+    { user: "Emily Rodriguez", action: t.admin.activityConnected, time: `5 ${t.admin.hoursAgo}` },
+    { user: "David Kim", action: t.admin.activityStartedTrial, time: `1 ${t.admin.dayAgo}` },
+    { user: "Lisa Wang", action: t.admin.activityExported, time: `1 ${t.admin.dayAgo}` },
   ];
 
   return (
     <DashboardLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold" data-testid="text-admin-title">Admin Dashboard</h1>
-          <p className="text-muted-foreground">Monitor platform performance and manage users</p>
+          <h1 className="text-3xl font-bold" data-testid="text-admin-title">{t.admin.title}</h1>
+          <p className="text-muted-foreground">{t.admin.subtitle}</p>
         </div>
 
         {/* Stats Cards */}
@@ -129,7 +132,7 @@ const Admin = () => {
                     </div>
                     <p className="text-xs text-green-600 flex items-center mt-1">
                       <TrendingUp className="w-3 h-3 mr-1" />
-                      {stat.change} from last month
+                      {stat.change} {t.admin.fromLastMonth}
                     </p>
                   </CardContent>
                 </Card>
@@ -142,8 +145,8 @@ const Admin = () => {
         <div className="grid lg:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Revenue Trend</CardTitle>
-              <CardDescription>Monthly revenue over the last 6 months</CardDescription>
+              <CardTitle>{t.admin.revenueTrend}</CardTitle>
+              <CardDescription>{t.admin.revenueTrendDescription}</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
@@ -161,8 +164,8 @@ const Admin = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>User Growth</CardTitle>
-              <CardDescription>New users over the last 6 months</CardDescription>
+              <CardTitle>{t.admin.userGrowth}</CardTitle>
+              <CardDescription>{t.admin.userGrowthDescription}</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
@@ -184,14 +187,14 @@ const Admin = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>User Management</CardTitle>
-                <CardDescription>Manage and monitor all platform users</CardDescription>
+                <CardTitle>{t.admin.userManagement}</CardTitle>
+                <CardDescription>{t.admin.userManagementDescription}</CardDescription>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
-                    placeholder="Search users..."
+                    placeholder={t.admin.searchUsers}
                     className="pl-9 w-64"
                     data-testid="input-search-users"
                   />
@@ -203,11 +206,11 @@ const Admin = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>User</TableHead>
-                  <TableHead>Plan</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Joined</TableHead>
-                  <TableHead>Revenue</TableHead>
+                  <TableHead>{t.admin.user}</TableHead>
+                  <TableHead>{t.admin.plan}</TableHead>
+                  <TableHead>{t.admin.status}</TableHead>
+                  <TableHead>{t.admin.joined}</TableHead>
+                  <TableHead>{t.admin.revenue}</TableHead>
                   <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
@@ -225,7 +228,7 @@ const Admin = () => {
                     </TableCell>
                     <TableCell>
                       <Badge variant={user.status === "active" ? "default" : "secondary"}>
-                        {user.status}
+                        {user.status === "active" ? t.admin.active : t.admin.trial}
                       </Badge>
                     </TableCell>
                     <TableCell>{user.joined}</TableCell>
@@ -245,8 +248,8 @@ const Admin = () => {
         {/* Activity Log */}
         <Card>
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Latest user actions on the platform</CardDescription>
+            <CardTitle>{t.admin.recentActivity}</CardTitle>
+            <CardDescription>{t.admin.recentActivityDescription}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">

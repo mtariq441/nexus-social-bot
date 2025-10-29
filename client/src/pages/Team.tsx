@@ -185,7 +185,7 @@ const Team = () => {
               <DialogHeader>
                 <DialogTitle>{t.team.inviteMember}</DialogTitle>
                 <DialogDescription>
-                  Invitez un nouveau membre à rejoindre votre équipe. Il recevra un email d'invitation.
+                  {t.team.inviteMemberDescription}
                 </DialogDescription>
               </DialogHeader>
               <div className="space-y-4 py-4">
@@ -224,7 +224,7 @@ const Team = () => {
                   {t.common.cancel}
                 </Button>
                 <Button onClick={handleInvite} className="bg-gradient-primary" data-testid="button-confirm-invite">
-                  Envoyer l'invitation
+                  {t.team.sendInvite}
                 </Button>
               </DialogFooter>
             </DialogContent>
